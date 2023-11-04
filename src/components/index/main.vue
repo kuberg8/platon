@@ -13,6 +13,7 @@
     <IndexAbout />
 
     <img src="assets/images/second_bg.png" class="main__img-second" />
+    <img src="assets/images/three.png" class="main__img-third" />
   </main>
 </template>
 
@@ -33,10 +34,10 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   display: flex;
   flex-direction: column;
   row-gap: rem(200);
-  background-image: url('/assets/images/first_bg.png');//, url('/assets/images/second_bg.png');
+  background-image: url('/assets/images/first_bg.png');
   background-repeat: no-repeat;
-  background-position: top left;//, center left;
-  background-size: rem(612.5) rem(1202.35);//, rem(597) rem(1542);
+  background-position: top left;
+  background-size: rem(612.5) rem(1202.35);
   position: relative;
 
   &__img {
@@ -45,7 +46,17 @@ import IndexAdvantages from '@/components/index/advantages.vue'
       width: rem(597);
       height: rem(1542);
       left: 0;
-      top: rem(1139)
+      top: rem(1139);
+      z-index: -1;
+    }
+
+    &-third {
+      position: absolute;
+      right: 0;
+      width: rem(624.799);
+      height: rem(416.583);
+      top: rem(771);
+      z-index: -1;
     }
   }
 }

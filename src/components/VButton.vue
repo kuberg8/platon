@@ -57,11 +57,12 @@ export default {
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: rem(36);
   padding: 0 rem(14);
   background: $color-primary;
   border-radius: 5px;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     background: $color-hover-primary;

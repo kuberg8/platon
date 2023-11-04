@@ -40,7 +40,7 @@ export default {
     },
     slidesPerView: {
       type: Number,
-      default: 3
+      default: 3.1
     },
     spaceBetween: {
       type: Number,

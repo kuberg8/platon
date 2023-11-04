@@ -29,7 +29,8 @@ const check = ref(false)
 .checkbox {
   display: flex;
   align-items: flex-end;
-  column-gap: rem(23);
+  // column-gap: rem(23);
+  column-gap: rem(13);
   font-size: rem(12);
   font-weight: 400;
   line-height: 154.4%;

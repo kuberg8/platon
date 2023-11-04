@@ -12,20 +12,22 @@
         </div>
       </div>
 
-      <form @submit.prevent class="intro__form">
-        <div class="intro__form-title">Оставьте заявку на звонок</div>
-        <div class="intro__form-subtitle">Наш менеджер свяжется с вами в течение 5 минут</div>
-        <div class="intro__form-fields">
-          <VInput placeholder="Ваше имя" required />
-          <VInput placeholder="Номер телефона " required />
-          <VInput placeholder="E-mail" required />
-          <VInput placeholder="Дополнительная информация" />
-          <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
-          <!-- <VFile>Добавить свой эскиз</VFile> -->
-        </div>
-        <span class="intro__form-info">Чтобы добавить сразу несколько изображений, используйте клавишу Shift</span>
-        <VButton type="submit">Оставить заявку на звонок</VButton>
-      </form>
+      <div>
+        <form @submit.prevent class="intro__form">
+          <div class="intro__form-title">Оставьте заявку на звонок</div>
+          <div class="intro__form-subtitle">Наш менеджер свяжется с вами в течение 5 минут</div>
+          <div class="intro__form-fields">
+            <VInput placeholder="Ваше имя" required />
+            <VInput placeholder="Номер телефона " required />
+            <VInput placeholder="E-mail" required />
+            <VInput placeholder="Дополнительная информация" />
+            <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
+            <!-- <VFile>Добавить свой эскиз</VFile> -->
+            <VButton type="submit">Оставить заявку на звонок</VButton>
+          </div>
+          <!-- <span class="intro__form-info">Чтобы добавить сразу несколько изображений, используйте клавишу Shift</span> -->
+        </form>
+      </div>
     </div>
   </section>
 </template>
@@ -105,10 +107,11 @@ const cards = [
     border-radius: 10px;
     background: #333;
     box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.4);
-    height: rem(690);
     padding: rem(49) rem(43);
-
+    
     @include media-breakpoint-up(lg) {
+      // height: rem(690);
+      height: auto;
       display: flex;
     }
 
@@ -139,15 +142,15 @@ const cards = [
       height: rem(45);
     }
 
-    &-info {
-      text-align: center;
-      margin: rem(23) 0;
-      font-size: rem(12);
-      font-weight: 400;
-      line-height: 154.4%;
-      color: rgba(#f2f2f2, 0.7);
-      width: rem(365.555);
-    }
+    // &-info {
+    //   text-align: center;
+    //   margin: rem(23) 0;
+    //   font-size: rem(12);
+    //   font-weight: 400;
+    //   line-height: 154.4%;
+    //   color: rgba(#f2f2f2, 0.7);
+    //   width: rem(365.555);
+    // }
   }
 }
 </style>

@@ -7,9 +7,6 @@
     <IndexInsta />
     <IndexReviews />
     <IndexAdvantages />
-    <!--  -->
-    <div></div>
-    <!--  -->
     <IndexAbout />
 
     <img src="assets/images/second_bg.png" class="main__img-second" />
@@ -34,29 +31,42 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   display: flex;
   flex-direction: column;
   row-gap: rem(200);
-  background-image: url('/assets/images/first_bg.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: rem(612.5) rem(1202.35);
   position: relative;
+  
+  @include media-breakpoint-up(lg) {
+    background-image: url('/assets/images/first_bg.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: rem(612.5) rem(1202.35);
+  }
 
   &__img {
     &-second {
+      display: none;
       position: absolute;
       width: rem(597);
       height: rem(1542);
       left: 0;
       top: rem(1139);
       z-index: -1;
+
+      @include media-breakpoint-up(lg) {
+        display: block;
+      }
     }
 
     &-third {
+      display: none;
       position: absolute;
       right: 0;
       width: rem(624.799);
       height: rem(416.583);
       top: rem(771);
       z-index: -1;
+
+      @include media-breakpoint-up(lg) {
+        display: block;
+      }
     }
   }
 }

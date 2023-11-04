@@ -1,6 +1,12 @@
 <template>
   <section id="work">
-    <VSwiper :items="[...new Array(9).fill(testCard)]" wrapper-class="card__wrapper" class="work container">
+    <VSwiper
+      :breakpoints="breakpoints"
+      :slidesPerView="1.1"
+      :items="[...new Array(9).fill(testCard)]"
+      wrapper-class="card__wrapper"
+      class="work container"
+    >
       <template #default="{ item }">
         <VCard v-bind="item" />
       </template>
@@ -33,15 +39,17 @@ const testCard = {
     },
   ],
 }
+
+const breakpoints = {
+  1280: {
+    slidesPerView: 3.1,
+  },
+}
 </script>
 
 <style lang="scss">
 .work {
   height: rem(829);
-  //   background-image: url('/assets/images/second_bg.png');
-  //   background-size: rem(597) rem(1542);
-  //   background-position: top left;
-  //   background-repeat: no-repeat;
 
   .swiper-button-prev,
   .swiper-button-next {

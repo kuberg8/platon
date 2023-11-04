@@ -26,7 +26,12 @@ import VButton from '../VButton.vue'
   &__container {
     display: flex;
     flex-direction: column;
-    padding-left: rem(187);
+    padding: 0 rem(20);
+
+    @include media-breakpoint-up(lg) {
+      padding-left: rem(187);
+      padding-right: 0;
+    }
   }
 
   &__title {
@@ -34,11 +39,14 @@ import VButton from '../VButton.vue'
     font-size: rem(50);
     font-weight: 600;
     line-height: 81%;
-    letter-spacing: rem(1.75);
-    width: rem(847.396);
-    height: rem(118.197);
-    margin-top: rem(53);
-    margin-bottom: rem(13);
+
+    @include media-breakpoint-up(lg) {
+      letter-spacing: rem(1.75);
+      width: rem(847.396);
+      height: rem(118.197);
+      margin-top: rem(53);
+      margin-bottom: rem(13);
+    }
 
     &-color {
       color: $color-primary;
@@ -46,27 +54,37 @@ import VButton from '../VButton.vue'
   }
 
   &__button {
-    width: rem(401);
     height: rem(45);
     color: #333;
     justify-content: center;
-    margin-left: rem(371);
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: rem(371);
+      width: rem(401);
+    }
   }
 
   &__phone {
     position: absolute;
     bottom: 0;
-    width: rem(370);
-    height: rem(440);
-    left: rem(1117);
+
+    @include media-breakpoint-up(lg) {
+      width: rem(370);
+      height: rem(440);
+      left: rem(1117);
+    }
   }
 
   &__logo {
     position: absolute;
-    bottom: rem(25);
-    left: rem(1292);
-    width: rem(250.745);
-    height: rem(250.745);
+
+    @include media-breakpoint-up(lg) {
+      bottom: rem(25);
+      left: rem(1292);
+      width: rem(250.745);
+      height: rem(250.745);
+    }
   }
 }
 </style>

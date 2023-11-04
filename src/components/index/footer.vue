@@ -49,11 +49,13 @@ const links = [
   @include base-container;
 
   display: flex;
+  flex-direction: column;
   column-gap: rem(167);
   background: $color-bg;
   border-top: 1px dashed $color-primary;
 
   @include media-breakpoint-up(lg) {
+    flex-direction: row;
     padding: rem(77.21) rem(130) rem(35.21);
   }
 
@@ -64,17 +66,23 @@ const links = [
   }
 
   &__links {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     font-weight: 700;
-    width: rem(179);
     white-space: nowrap;
+
+    @include media-breakpoint-up(lg) {
+      width: rem(179);
+      display: flex;
+    }
   }
 
   &__logo {
-    height: rem(150);
-    width: rem(337);
+    @include media-breakpoint-up(lg) {
+      height: rem(150);
+      width: rem(337);
+    }
   }
 
   &__number {
@@ -85,8 +93,10 @@ const links = [
   }
 
   &__address {
-    width: rem(589);
-    height: 100%;
+    @include media-breakpoint-up(lg) {
+      width: rem(589);
+      height: 100%;
+    }
 
     &-street {
       display: flex;
@@ -102,9 +112,14 @@ const links = [
   }
 
   &__map {
+    display: none;
     height: rem(219);
     overflow: hidden;
     margin: rem(10) 0;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
   }
 
   &__icons {

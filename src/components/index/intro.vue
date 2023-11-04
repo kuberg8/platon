@@ -50,44 +50,67 @@ const cards = [
 <style lang="scss">
 .intro {
   display: grid;
-  grid-template-columns: rem(950) rem(487);
+  grid-template-columns: 1fr;
   column-gap: rem(155);
-  height: rem(800);
   border-radius: 10px;
   background: rgba(51, 51, 51, 0.21);
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
-  margin-top: rem(176);
-  padding: rem(30);
+  
+  @include media-breakpoint-up(lg) {
+    height: rem(800);
+    grid-template-columns: rem(950) rem(487);
+    margin-top: rem(176);
+    padding: rem(30);
+  }
 
   &__title {
-    font-size: rem(75);
+    font-size: rem(40);
     font-weight: 800;
     line-height: 107.5%;
     letter-spacing: rem(2.625);
-    width: rem(772.236);
-    margin-bottom: rem(20);
-    margin-top: rem(64);
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(75);
+      width: rem(772.236);
+      margin-bottom: rem(20);
+      margin-top: rem(64);
+      text-align: left;
+    }
   }
 
   &__text {
-    width: rem(660.771);
+    @include media-breakpoint-up(lg) {
+      width: rem(660.771);
+    }
   }
 
   &__row {
-    display: flex;
-    column-gap: rem(14);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(10);
+    row-gap: rem(10);
     margin-top: rem(80);
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      column-gap: rem(14);
+    }
   }
 
   &__form {
-    display: flex;
+    display: none;
     flex-direction: column;
     border-radius: 10px;
     background: #333;
     box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.4);
     height: rem(690);
     padding: rem(49) rem(43);
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
 
     &-title {
       font-size: rem(28);
@@ -122,7 +145,7 @@ const cards = [
       font-size: rem(12);
       font-weight: 400;
       line-height: 154.4%;
-      color: rgba(#F2F2F2, 0.7);
+      color: rgba(#f2f2f2, 0.7);
       width: rem(365.555);
     }
   }

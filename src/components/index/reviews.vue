@@ -46,7 +46,7 @@ const reviews = [
   {
     text: 'Сотрудничество с woodland оставило хорошие впечатления, особенно хочется отметить работу монтажников. Сделали все быстро и аккуратно. Рекомендую.',
     user: 'Иван Харламов',
-  }
+  },
 ]
 
 const changeSlide = ({ realIndex }) => (activeSlide.value = realIndex + 1)
@@ -55,29 +55,43 @@ const changeSlide = ({ realIndex }) => (activeSlide.value = realIndex + 1)
 <style lang="scss">
 .reviews {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   height: rem(279);
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   z-index: 1;
+  max-width: 100vw;
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   &__left {
-    background: url('/assets/images/reviews.svg');
-    background-repeat: no-repeat;
-    background-size: 121%;
-    background-position: left center;
-    padding: rem(92) rem(187.7) 0 rem(252);
-    font-size: rem(50);
     font-weight: 600;
-    line-height: 81%;
     letter-spacing: rem(1.75);
+
+    @include media-breakpoint-up(lg) {
+      line-height: 81%;
+      background: url('/assets/images/reviews.svg');
+      font-size: rem(50);
+      padding: rem(92) rem(187.7) 0 rem(252);
+      background-repeat: no-repeat;
+      background-size: 121%;
+      background-position: left center;
+    }
   }
 
   &__right {
     height: 100%;
-    padding: rem(42) rem(68) rem(10) rem(26.3);
+
+    @include media-breakpoint-up(lg) {
+      padding: rem(42) rem(68) rem(10) rem(26.3);
+    }
 
     &-swiper {
-      height: rem(195);
+      @include media-breakpoint-up(lg) {
+        height: rem(195);
+      }
     }
   }
 
@@ -86,10 +100,14 @@ const changeSlide = ({ realIndex }) => (activeSlide.value = realIndex + 1)
     align-items: flex-start;
     column-gap: rem(39);
     height: 100%;
-    padding: 0 rem(103);
     font-size: rem(18);
     font-weight: 400;
     line-height: 202.9%;
+    max-width: 100vw;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 rem(103);
+    }
 
     &-icon {
       width: rem(27);

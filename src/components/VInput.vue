@@ -21,7 +21,8 @@ defineProps({
   padding: rem(6.5) rem(20) rem(1.5);
   align-items: center;
   border-radius: 5px;
-  background: var(--Gray-2, #4f4f4f);
+  background: #4f4f4f;
+//   color: #bdbdbd;
 
   &.required {
     padding-left: rem(35);
@@ -42,6 +43,10 @@ defineProps({
 
   &__wrapper {
     position: relative;
+  }
+
+  &::placeholder {
+    color: #bdbdbd;
   }
 }
 </style>

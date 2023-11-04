@@ -46,7 +46,7 @@ const links = [
 
   display: flex;
   align-items: center;
-  position: fixed;
+  flex-direction: column;
   top: 0;
   left: 0;
   background: rgba(51, 51, 51, 0.21);
@@ -55,36 +55,72 @@ const links = [
   padding-top: rem(14.6);
   padding-bottom: rem(14.6);
   z-index: 100;
+  
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+    flex-direction: row;
+  }
 
   &__logo {
-    height: rem(71);
-    width: rem(163);
+    height: rem(153);
+    width: rem(157);
+
+    @include media-breakpoint-up(lg) {
+      height: rem(71);
+      width: rem(163);
+    }
   }
 
   &__nav {
     display: flex;
     column-gap: rem(35);
-    margin-left: rem(74.78);
+    row-gap: rem(20);
+
+    @include media-breakpoint-up(lg) {
+      margin-left: rem(74.78);
+    }
   }
 
   &__social {
-    display: flex;
+    display: none;
     align-items: center;
     column-gap: rem(10);
     margin-left: rem(16.6);
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
+
+  nav {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
   }
 
   &__address {
     display: flex;
     align-items: center;
+    flex-direction: column;
     column-gap: rem(20);
-    margin-left: auto;
     font-size: rem(16);
+    
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      margin-left: auto;
+    }
 
     &-street {
       display: flex;
+      flex-direction: column;
       align-items: center;
       column-gap: rem(10);
+
+      @include media-breakpoint-up(lg) {
+        flex-direction: row;
+      }
     }
 
     &-icon {

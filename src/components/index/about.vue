@@ -31,7 +31,7 @@ const text = `В 2014 году была основана Столярная Ма
     width: rem(211);
     font-size: rem(14);
     line-height: rem(18);
-    padding: 0 0 rem(27);
+    padding: rem(50) 0 rem(27);
 
     @include media-breakpoint-up(lg) {
       font-size: rem(18);

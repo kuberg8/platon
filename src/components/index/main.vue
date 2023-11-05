@@ -9,6 +9,7 @@
     <IndexReviews />
     <IndexOnline class="online__mobile" />
     <IndexAdvantages />
+    <IndexMaterials />
     <IndexAsks />
     <IndexAbout />
 
@@ -26,6 +27,7 @@ import IndexAbout from '@/components/index/about.vue'
 import IndexProduction from '@/components/index/production.vue'
 import IndexInsta from '@/components/index/insta.vue'
 import IndexReviews from '@/components/index/reviews.vue'
+import IndexMaterials from '@/components/index/materials.vue'
 import IndexAsks from '@/components/index/asks.vue'
 import IndexAdvantages from '@/components/index/advantages.vue'
 </script>

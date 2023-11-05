@@ -10,7 +10,7 @@
     </div>
 
     <div class="footer__links">
-      <a v-for="(link, i) in links" :key="i" :href="link.link">{{ link.text }}</a>
+      <a class="link" v-for="(link, i) in links" :key="i" @click="link.event" :href="link.link">{{ link.text }}</a>
     </div>
 
     <div class="footer__address">
@@ -33,15 +33,12 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue'
 import VButton from '@/components/VButton.vue'
 
-const links = [
-  { text: 'Рассчитать стоимость' },
-  { text: 'О нас', link: '#about' },
-  { text: 'Наши работы', link: '#work' },
-  { text: 'Отзывы', link: '#reviews' },
-  { text: 'Контакты' },
-]
+defineProps({
+  links: Array
+})
 </script>
 
 <style lang="scss">

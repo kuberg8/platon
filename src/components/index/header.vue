@@ -12,7 +12,7 @@
     <nav>
       <ul class="header__nav">
         <li v-for="(link, i) in links" :key="i">
-          <a :href="link.link">
+          <a class="link" :href="link.link" @click="link.event">
             {{ link.text }}
           </a>
         </li>
@@ -35,14 +35,12 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue'
 import VButton from '../VButton.vue'
 
-const links = [
-  { text: 'Рассчитать стоимость' },
-  { text: 'О нас', link: '#about' },
-  { text: 'Наши работы', link: '#work' },
-  { text: 'Контакты' },
-]
+defineProps({
+  links: Array
+})
 </script>
 
 <style lang="scss">
@@ -103,6 +101,10 @@ const links = [
 
     @include media-breakpoint-up(lg) {
       display: block;
+    }
+
+    .link:hover {
+      text-decoration: underline;
     }
   }
 

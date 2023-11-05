@@ -1,5 +1,5 @@
 <template>
-  <section class="online">
+  <section id="online" class="online">
     <div>
       <div class="online__title">Узнайте цену своего изделия <span class="online__title-color"> онлайн </span></div>
       <div class="online__text">
@@ -31,8 +31,8 @@ import VCheckbox from '../VCheckbox.vue'
   background: $color-grey;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   z-index: 1;
-  padding: 0 rem(20);
-  
+  padding: rem(30) rem(20) rem(23);
+
   @include media-breakpoint-up(lg) {
     height: rem(279);
     grid-template-columns: rem(973) rem(402);
@@ -44,6 +44,9 @@ import VCheckbox from '../VCheckbox.vue'
     font-weight: 600;
     line-height: 81%;
     letter-spacing: rem(1.75);
+    font-size: rem(24);
+    line-height: rem(25);
+    margin-bottom: rem(15);
 
     @include media-breakpoint-up(lg) {
       font-size: rem(50);
@@ -56,8 +59,14 @@ import VCheckbox from '../VCheckbox.vue'
   }
 
   &__text {
+    font-size: rem(14);
+    line-height: rem(18);
+    max-width: rem(260);
+    margin-bottom: rem(15);
+    
     @include media-breakpoint-up(lg) {
       width: rem(798.633);
+      max-width: auto;
       margin-bottom: rem(26.9);
     }
   }

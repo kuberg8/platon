@@ -25,7 +25,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  font-size: rem(18);
+  font-size: rem(12);
   font-weight: 700;
   line-height: rem(22);
   white-space: pre-line;
@@ -33,8 +33,9 @@ defineProps({
   overflow: hidden;
   row-gap: rem(15);
   padding: rem(7.3) rem(14);
-
+  
   @include media-breakpoint-up(lg) {
+    font-size: rem(18);
     width: rem(227);
     height: rem(222);
     padding: rem(20) rem(10);

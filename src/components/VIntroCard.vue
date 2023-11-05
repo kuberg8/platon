@@ -32,12 +32,12 @@ defineProps({
   position: relative;
   overflow: hidden;
   row-gap: rem(15);
+  padding: rem(7.3) rem(14);
 
   @include media-breakpoint-up(lg) {
     width: rem(227);
     height: rem(222);
-    padding-left: rem(10);
-    padding-bottom: rem(20);
+    padding: rem(20) rem(10);
   }
 
   &-img {

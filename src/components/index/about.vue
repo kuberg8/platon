@@ -23,9 +23,12 @@ const text = `В 2014 году была основана Столярная Ма
   &__text {
     display: flex;
     flex-direction: column;
-    row-gap: rem(80);
-    width: rem(767);
-    padding: rem(116.23) rem(32);
+    
+    @include media-breakpoint-up(lg) {
+      row-gap: rem(80);
+      width: rem(767);
+      padding: rem(116.23) rem(32);
+    }
   }
 }
 </style>

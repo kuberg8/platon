@@ -7,6 +7,7 @@
     <IndexInsta />
     <IndexReviews />
     <IndexAdvantages />
+    <IndexAsks />
     <IndexAbout />
 
     <img src="assets/images/second_bg.png" class="main__img-second" />
@@ -22,6 +23,7 @@ import IndexAbout from '@/components/index/about.vue'
 import IndexProduction from '@/components/index/production.vue'
 import IndexInsta from '@/components/index/insta.vue'
 import IndexReviews from '@/components/index/reviews.vue'
+import IndexAsks from '@/components/index/asks.vue'
 import IndexAdvantages from '@/components/index/advantages.vue'
 </script>
 
@@ -30,10 +32,11 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  row-gap: rem(200);
   position: relative;
+  row-gap: rem(50);
   
   @include media-breakpoint-up(lg) {
+    row-gap: rem(200);
     background-image: url('/assets/images/first_bg.png');
     background-repeat: no-repeat;
     background-position: top left;
@@ -61,7 +64,7 @@ import IndexAdvantages from '@/components/index/advantages.vue'
       right: 0;
       width: rem(624.799);
       height: rem(416.583);
-      top: rem(771);
+      top: rem(800);
       z-index: -1;
 
       @include media-breakpoint-up(lg) {

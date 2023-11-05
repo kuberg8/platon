@@ -44,7 +44,7 @@ export default {
     },
     spaceBetween: {
       type: Number,
-      default: 50,
+      default: 20,
     },
   },
   methods: {

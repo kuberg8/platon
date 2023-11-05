@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h2>{{ title }}</h2>
+    <h2 class="card__title">{{ title }}</h2>
 
     <div class="card__img-wrapper">
       <VButton text icon="arrow" class="card__arrow-left" @click="prevItem" />
@@ -8,11 +8,11 @@
       <VButton text icon="arrow" class="card__arrow-right" @click="nextItem" />
     </div>
 
-    <b class="card__title">{{ activeItem.title }}</b>
+    <b class="card__subtitle">{{ activeItem.title }}</b>
     <div>
-      <div><b>Ширина:</b> {{ activeItem.width }} мм</div>
-      <div><b>Высота:</b> {{ activeItem.height }} мм</div>
-      <div><b>Глубина:</b> {{ activeItem.depth }} мм</div>
+      <div class="card__unit"><b>Ширина:</b> {{ activeItem.width }} мм</div>
+      <div class="card__unit"><b>Высота:</b> {{ activeItem.height }} мм</div>
+      <div class="card__unit"><b>Глубина:</b> {{ activeItem.depth }} мм</div>
     </div>
     <div class="card__bottom">
       <b>от {{ priceFilter(activeItem.price) }} руб.</b>
@@ -58,25 +58,35 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
 .card {
   display: flex;
   width: 100%;
-  height: rem(739);
-  padding: rem(25) rem(20) rem(5.1) rem(25);
   flex-direction: column;
-  gap: rem(23);
+  gap: rem(10);
   flex-shrink: 0;
   border-radius: rem(10);
   transition: 0.5s;
   background-color: $color-grey;
+  font-size: rem(12);
+  
+  @include media-breakpoint-up(lg) {
+    height: rem(739);
+    font-size: rem(18);
+    gap: rem(23);
+    padding: rem(25) rem(20) rem(5.1) rem(25);
 
-  &:hover {
-    box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
+    &:hover {
+      box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
 
-    a {
-      color: $color-primary;
+      a {
+        color: $color-primary;
+      }
     }
   }
 
   &__img {
-    height: rem(362);
+    height: rem(200);
+
+    @include media-breakpoint-up(lg) {
+      height: rem(362);
+    }
 
     &-wrapper {
       position: relative;
@@ -100,6 +110,13 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
       top: 0;
       bottom: 0;
       margin: auto;
+      width: rem(40);
+      height: rem(40);
+
+      @include media-breakpoint-up(lg) {
+        width: rem(64);
+        height: rem(64);
+      }
     }
 
     &-left {
@@ -132,21 +149,52 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: rem(70);
+
+    @include media-breakpoint-up(lg) {
+      height: rem(70);
+    }
 
     a {
-      display: flex;
-      align-items: center;
-      color: #828282;
-      column-gap: rem(10);
-      text-decoration: underline;
-      transition: color 0.5s;
+      display: none;
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        color: #828282;
+        column-gap: rem(10);
+        text-decoration: underline;
+        transition: color 0.5s;
+      }
     }
   }
 
   &__title {
-    font-size: rem(24);
-    line-height: 167.9%;
+    font-weight: 600;
+    line-height: 100%;
+    font-size: rem(23.5);
+    letter-spacing: rem(0.824);
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(40);
+      letter-spacing: rem(1.4);
+    }
+  }
+
+  &__subtitle {
+    font-size: rem(14);
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(24);
+      line-height: 167.9%;
+    }
+  }
+
+  &__unit {
+    height: rem(24);
+    
+    @include media-breakpoint-up(lg) {
+      height: rem(37);
+    }
   }
 }
 </style>

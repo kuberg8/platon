@@ -23,7 +23,7 @@ const cards = [
 
 const breakpoints = {
   1280: {
-    slidesPerView: 5
+    slidesPerView: 5,
   },
 }
 </script>
@@ -33,17 +33,30 @@ const breakpoints = {
   background: linear-gradient(0deg, #333 0%, rgba(51, 51, 51, 0) 78.58%), url('/assets/images/advantages.png'),
     lightgray 50% / cover no-repeat;
   background-size: cover;
-  margin: rem(-200) 0;
-  min-height: rem(881);
+  margin: rem(-60) 0;
+  padding: rem(50) 0;
+  min-height: rem(554);
+
+  @include media-breakpoint-up(lg) {
+    min-height: rem(881);
+    margin: rem(-200) 0;
+    padding: rem(200) 0;
+  }
 
   &__title {
     text-align: center;
-    margin-bottom: rem(52);
+    margin-bottom: rem(30);
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(52);
+    }
   }
 
   &__swiper {
+    padding: 0 rem(20);
+
     @include media-breakpoint-up(lg) {
-      padding: rem(200) rem(130);
+      padding: 0 rem(130);
     }
   }
 
@@ -52,8 +65,10 @@ const breakpoints = {
     display: none;
   }
 
-  .swiper-pagination {
-    display: none;
+  @include media-breakpoint-up(lg) {
+    .swiper-pagination {
+      display: none;
+    }
   }
 }
 </style>

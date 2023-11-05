@@ -1,15 +1,12 @@
 <template>
-  <section class="online">
-    <div>
-      <div class="online__title">Узнайте цену своего изделия <span class="online__title-color"> онлайн </span></div>
-      <div class="online__text">
-        Мы поможем подобрать Вам лучшее решение для Вашей квартиры, коттеджа, дачи, террасы, офиса и любых других
-        помещений так, что бы потом не жалеть!
-      </div>
-      <VButton class="online__button">Рассчитать</VButton>
+  <section class="asks">
+    <div class="asks__left">
+      <img class="asks__img" src="assets/images/ask.png" />
+      <div class="asks__title">Остались вопросы?</div>
+      <div class="asks__text">Оставьте заявку, мы вас проконсультируем и ответим на Ваши вопросы</div>
     </div>
 
-    <form class="online__form" @submit.prevent>
+    <form class="asks__form" @submit.prevent>
       <VInput placeholder="Ваше имя" required />
       <VInput placeholder="Номер телефона" required />
       <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
@@ -25,52 +22,59 @@ import VCheckbox from '../VCheckbox.vue'
 </script>
 
 <style lang="scss">
-.online {
+.asks {
   display: grid;
   grid-template-columns: 1fr;
   background: $color-grey;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   z-index: 1;
-  padding: 0 rem(20);
-  
+  position: relative;
+  margin-bottom: rem(-50);
+
   @include media-breakpoint-up(lg) {
-    height: rem(279);
-    grid-template-columns: rem(973) rem(402);
+    height: rem(316);
+    grid-template-columns: rem(410) rem(440);
     column-gap: rem(131);
-    padding: rem(45) 0 0 rem(130);
+    padding-left: rem(649);
+    margin-bottom: rem(-200);
+  }
+
+  &__img {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: rem(724.119);
+    height: rem(1085.627);
+  }
+
+  &__left {
+    padding-top: rem(84);
+    max-width: rem(410);
   }
 
   &__title {
-    font-weight: 600;
-    line-height: 81%;
-    letter-spacing: rem(1.75);
-
     @include media-breakpoint-up(lg) {
-      font-size: rem(50);
-      margin-bottom: rem(26);
-    }
-
-    &-color {
-      color: $color-primary;
+      font-size: rem(34);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100.5%;
+      letter-spacing: rem(1.19);
+      margin-bottom: rem(20);
     }
   }
 
   &__text {
     @include media-breakpoint-up(lg) {
-      width: rem(798.633);
-      margin-bottom: rem(26.9);
+      line-height: 154.4%;
     }
   }
 
   &__button {
     justify-content: center;
     color: #333;
+    width: rem(401);
     height: rem(45);
-    width: 100%;
-
-    @include media-breakpoint-up(lg) {
-      width: rem(401);
-    }
   }
 
   &__form {
@@ -80,6 +84,7 @@ import VCheckbox from '../VCheckbox.vue'
 
     @include media-breakpoint-up(lg) {
       display: flex;
+      padding-top: rem(34);
     }
 
     .btn {

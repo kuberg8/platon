@@ -40,20 +40,32 @@ const blocks = [
 
 <style lang="scss">
 .production {
-  padding: 0 rem(130);
+  padding: 0 rem(20);
   overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 rem(130);
+  }
 
   &__title {
     text-align: center;
-    margin-bottom: rem(165);
+    margin-bottom: rem(41);
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(165);
+    }
   }
 
   &__row {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    column-gap: rem(77);
-    row-gap: rem(63);
+    row-gap: rem(60);
+
+    @include media-breakpoint-up(lg) {
+      column-gap: rem(77);
+      row-gap: rem(63);
+    }
   }
 
   &__block {
@@ -148,10 +160,14 @@ const blocks = [
   }
 
   &__text {
-    font-size: rem(24);
+    font-size: rem(18);
     font-weight: 400;
     line-height: 167.9%;
-    max-width: rem(418);
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(24);
+      max-width: rem(418);
+    }
   }
 
   &__small {

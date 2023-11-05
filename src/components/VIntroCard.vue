@@ -20,7 +20,7 @@ defineProps({
   border-radius: 10px;
   background: linear-gradient(0deg, #000 14.2%, rgba(0, 0, 0, 0) 62.15%);
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.06);
-  width: rem(167.34);
+  width: 100%;
   height: rem(163.654);
   display: flex;
   flex-direction: column;

@@ -1,7 +1,12 @@
 <template>
   <header class="header">
+    <!-- <div></div> -->
+
     <a href="#intro">
-      <img class="header__logo" src="@/assets/images/logo.svg" />
+      <picture>
+        <source class="header__logo" srcset="@/assets/images/logo-mobile.svg" media="(max-width: 1280px)" />
+        <img class="header__logo" src="@/assets/images/logo.svg" />
+      </picture>
     </a>
 
     <nav>
@@ -20,7 +25,7 @@
         г. Гомель, ул. производителей 14
       </div>
       <b class="header__phone">тел. + 375 (29) 127-48-18</b>
-      <VButton> Заказать звонок </VButton>
+      <VButton class="header__button"> Заказать звонок </VButton>
     </div>
     <div class="header__social">
       <VButton text icon="vk" />
@@ -55,7 +60,8 @@ const links = [
   padding-top: rem(14.6);
   padding-bottom: rem(14.6);
   z-index: 100;
-  
+  row-gap: rem(20);
+
   @include media-breakpoint-up(lg) {
     position: fixed;
     flex-direction: row;
@@ -105,22 +111,21 @@ const links = [
     align-items: center;
     flex-direction: column;
     column-gap: rem(20);
+    row-gap: rem(20);
     font-size: rem(16);
-    
+    width: 100%;
+
     @include media-breakpoint-up(lg) {
       flex-direction: row;
       margin-left: auto;
+      width: auto;
     }
 
     &-street {
       display: flex;
-      flex-direction: column;
       align-items: center;
       column-gap: rem(10);
-
-      @include media-breakpoint-up(lg) {
-        flex-direction: row;
-      }
+      font-size: rem(16);
     }
 
     &-icon {
@@ -130,7 +135,20 @@ const links = [
   }
 
   &__phone {
+    display: none;
     font-size: rem(16);
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      width: auto;
+    }
   }
 }
 </style>

@@ -70,10 +70,11 @@ const cards = [
     font-size: rem(40);
     font-weight: 800;
     line-height: 107.5%;
-    letter-spacing: rem(2.625);
     text-align: center;
-
+    letter-spacing: rem(1.4);
+    
     @include media-breakpoint-up(lg) {
+      letter-spacing: rem(2.625);
       font-size: rem(75);
       width: rem(772.236);
       margin-bottom: rem(20);
@@ -83,7 +84,10 @@ const cards = [
   }
 
   &__text {
+    display: none;
+
     @include media-breakpoint-up(lg) {
+      display: block;
       width: rem(660.771);
     }
   }
@@ -93,11 +97,12 @@ const cards = [
     grid-template-columns: 1fr 1fr;
     column-gap: rem(10);
     row-gap: rem(10);
-    margin-top: rem(80);
-
+    margin-top: rem(20);
+    
     @include media-breakpoint-up(lg) {
       display: flex;
       column-gap: rem(14);
+      margin-top: rem(80);
     }
   }
 

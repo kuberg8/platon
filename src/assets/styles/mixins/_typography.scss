@@ -1,7 +1,7 @@
 @mixin h1 {
   font-family: $ff-base;
   font-weight: 600;
-  font-size: rem(26);
+  font-size: rem(30);
   line-height: rem(32);
 
   @include media-breakpoint-up(lg) {
@@ -14,13 +14,13 @@
 @mixin h2 {
   font-family: $ff-base;
   font-weight: 600;
-  font-size: rem(22);
-  line-height: rem(30);
-  letter-spacing: 1.4px;
-
+  font-size: rem(24);
+  line-height: 100%;
+  letter-spacing: rem(0.84);
+  
   @include media-breakpoint-up(lg) {
-    line-height: 100%;
     font-size: rem(40);
+    letter-spacing: rem(1.4);
   }
 }
 

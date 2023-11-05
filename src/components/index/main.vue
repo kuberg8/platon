@@ -10,6 +10,7 @@
     <IndexAsks />
     <IndexAbout />
 
+    <img src="assets/images/first_bg.png" class="main__img-first" />
     <img src="assets/images/second_bg.png" class="main__img-second" />
     <img src="assets/images/three.png" class="main__img-third" />
   </main>
@@ -37,24 +38,36 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   
   @include media-breakpoint-up(lg) {
     row-gap: rem(200);
-    background-image: url('/assets/images/first_bg.png');
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: rem(612.5) rem(1202.35);
   }
 
   &__img {
-    &-second {
-      display: none;
+    &-first {
+      display: block;
       position: absolute;
-      width: rem(597);
-      height: rem(1542);
-      left: 0;
-      top: rem(1139);
+      left: rem(-90);
+      top: rem(-300);
+      object-fit: contain;
       z-index: -1;
-
+      width: rem(222.5);
+      
       @include media-breakpoint-up(lg) {
-        display: block;
+        top: 0;
+        left: 0;
+        width: rem(462.5);
+      }
+    }
+
+    &-second {
+      top: rem(2439);
+      display: block;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      
+      @include media-breakpoint-up(lg) {
+        top: rem(1139);
+        width: rem(597);
+        height: rem(1542);
       }
     }
 

@@ -58,7 +58,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: rem(36);
+  height: rem(45);
   padding: 0 rem(14);
   background: $color-primary;
   border-radius: 5px;
@@ -70,8 +70,13 @@ export default {
 
   &.circle {
     border-radius: 50%;
-    width: rem(60);
-    height: rem(60);
+    width: rem(44);
+    height: rem(44);
+    
+    @include media-breakpoint-up(lg) {
+      width: rem(60);
+      height: rem(60);
+    }
   }
 
   &.text {

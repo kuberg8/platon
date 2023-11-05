@@ -33,11 +33,24 @@ import VCheckbox from '../VCheckbox.vue'
   z-index: 1;
   padding: rem(30) rem(20) rem(23);
 
+  &__mobile {
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: grid;
+    }
+  }
+
   @include media-breakpoint-up(lg) {
-    height: rem(279);
     grid-template-columns: rem(973) rem(402);
     column-gap: rem(131);
-    padding: rem(45) 0 0 rem(130);
+    padding: rem(45) 0 rem(41) rem(130);
   }
 
   &__title {
@@ -63,7 +76,7 @@ import VCheckbox from '../VCheckbox.vue'
     line-height: rem(18);
     max-width: rem(260);
     margin-bottom: rem(15);
-    
+
     @include media-breakpoint-up(lg) {
       width: rem(798.633);
       max-width: auto;
@@ -74,7 +87,6 @@ import VCheckbox from '../VCheckbox.vue'
   &__button {
     justify-content: center;
     color: #333;
-    height: rem(45);
     width: 100%;
 
     @include media-breakpoint-up(lg) {

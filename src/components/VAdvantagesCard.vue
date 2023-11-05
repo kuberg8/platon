@@ -25,11 +25,15 @@ defineProps({
 .advantage__card {
   display: flex;
   flex-direction: column;
-  height: rem(450);
   border-radius: 5px;
   background: rgba(51, 51, 51, 0.21);
   backdrop-filter: blur(15px);
   padding: rem(16);
+  height: rem(432);
+  
+  @include media-breakpoint-up(lg) {
+    height: rem(450);
+  }
   
 
   &-text {

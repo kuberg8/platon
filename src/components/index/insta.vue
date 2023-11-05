@@ -19,10 +19,25 @@ import VButton from '../VButton.vue'
 <style lang="scss">
 .insta {
   display: flex;
+  background-color: #333;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   position: relative;
   height: rem(195);
-  
+
+  &__mobile {
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
+
   @include media-breakpoint-up(lg) {
     height: rem(279);
   }
@@ -33,7 +48,7 @@ import VButton from '../VButton.vue'
     padding: 0 rem(20);
     z-index: 1;
     width: 100%;
-    
+
     @include media-breakpoint-up(lg) {
       width: auto;
       padding-left: rem(187);
@@ -48,7 +63,7 @@ import VButton from '../VButton.vue'
     line-height: 107%;
     margin-top: rem(30);
     margin-bottom: rem(24);
-    
+
     @include media-breakpoint-up(lg) {
       text-align: center;
       line-height: 81%;
@@ -66,10 +81,9 @@ import VButton from '../VButton.vue'
   }
 
   &__button {
-    height: rem(45);
     justify-content: center;
     width: 100%;
-    
+
     @include media-breakpoint-up(lg) {
       color: #333;
       margin-left: rem(371);

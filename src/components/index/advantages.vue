@@ -61,12 +61,12 @@ const breakpoints = {
     }
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none;
-  }
-
   @include media-breakpoint-up(lg) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+
     .swiper-pagination {
       display: none;
     }

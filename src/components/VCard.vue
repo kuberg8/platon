@@ -98,6 +98,7 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
     padding-top: rem(20);
     margin-top: rem(-20);
     padding-bottom: rem(60);
+    margin-bottom: rem(25);
 
     @include media-breakpoint-up(lg) {
       padding-bottom: rem(100);

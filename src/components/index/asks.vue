@@ -75,7 +75,6 @@ import VCheckbox from '../VCheckbox.vue'
     justify-content: center;
     color: #333;
     width: rem(401);
-    height: rem(45);
   }
 
   &__form {

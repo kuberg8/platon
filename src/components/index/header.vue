@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <!-- <div></div> -->
+    <div class="header__mobile">
+      <VButton text icon="phone" class="header__phone-icon" />
+      + 375 (29) 127-48-18
+    </div>
 
     <a href="#intro">
       <picture>
@@ -39,7 +42,7 @@ import { defineProps } from 'vue'
 import VButton from '../VButton.vue'
 
 defineProps({
-  links: Array
+  links: Array,
 })
 </script>
 
@@ -150,6 +153,25 @@ defineProps({
 
     @include media-breakpoint-up(lg) {
       width: auto;
+      height: rem(36);
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    align-items: center;
+    column-gap: rem(8);
+    margin-bottom: rem(5);
+    font-size: rem(20);
+    font-weight: 700;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    .btn {
+      width: rem(50) !important;
+      height: rem(50) !important;
     }
   }
 }

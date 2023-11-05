@@ -75,15 +75,30 @@ $colors: (
 .swiper-button-next {
   position: absolute;
   top: 50%;
-  width: calc(var(--swiper-navigation-size) / 44 * 27);
-  height: var(--swiper-navigation-size);
+  // width: calc(var(--swiper-navigation-size) / 44 * 27);
+  // height: var(--swiper-navigation-size);
+  width: rem(40);
+  height: rem(40);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+
   margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
   z-index: 10;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  color: #fff; //var(--swiper-navigation-color, var(--swiper-theme-color));
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: rem(64);
+    height: rem(64);
+  }
+
   &.swiper-button-disabled {
     opacity: 0.35;
     cursor: auto;
@@ -91,12 +106,18 @@ $colors: (
   }
   &:after {
     font-family: swiper-icons;
-    font-size: var(--swiper-navigation-size);
+    // font-size: var(--swiper-navigation-size);
+    font-size: rem(18);
     text-transform: none !important;
     letter-spacing: 0;
     text-transform: none;
     font-variant: initial;
     line-height: 1;
+    font-size: rem(18);
+    
+    @include media-breakpoint-up(lg) {
+      font-size: rem(28);
+    }
   }
 }
 .swiper-button-prev,
@@ -275,5 +296,4 @@ $colors: (
 .swiper-pagination-lock {
   display: none;
 }
-
 </style>

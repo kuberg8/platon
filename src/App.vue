@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <IndexHeader :links="links" @scroll="scroll" />
+    <IndexHeader :links="headerLinks" @scroll="scroll" />
     <IndexMain />
-    <IndexFooter :links="links" @scroll="scroll" />
+    <IndexFooter :links="footerLinks" @scroll="scroll" />
   </div>
 </template>
 
@@ -14,11 +14,11 @@ import IndexFooter from '@/components/index/footer.vue'
 import { onMounted } from 'vue'
 
 const scroll = (name) => {
-  window.location.hash = '#online'
+  window.location.hash = name
   document.querySelector(name)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
 
-const links = [
+const headerLinks = [
   {
     text: 'Рассчитать стоимость',
     link: '#online',
@@ -29,16 +29,32 @@ const links = [
   },
   { text: 'О нас', link: '#about' },
   { text: 'Наши работы', link: '#work' },
-  { text: 'Контакты' },
+  { text: 'Контакты', link: '#contacts' },
 ]
 
-onMounted(() => {
-  switch (window.location.hash) {
-    case '#online':
+const footerLinks = [
+  {
+    text: 'Рассчитать стоимость',
+    link: '#online',
+    event: (e) => {
+      e.preventDefault()
       scroll('#online')
-      break
-  }
-})
+    },
+  },
+  { text: 'О нас', link: '#about' },
+  { text: 'Наши работы', link: '#work' },
+  {
+    text: 'Отзывы',
+    link: '#reviews',
+    event: (e) => {
+      e.preventDefault()
+      scroll('#reviews')
+    },
+  },
+  { text: 'Контакты', link: '#contacts' },
+]
+
+onMounted(() => scroll(window.location.hash))
 </script>
 
 <style lang="scss">

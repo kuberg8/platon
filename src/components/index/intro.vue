@@ -144,7 +144,6 @@ const cards = [
 
     .btn {
       color: #333;
-      height: rem(45);
     }
 
     // &-info {

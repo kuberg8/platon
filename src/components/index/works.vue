@@ -11,12 +11,17 @@
         <VCard v-bind="item" />
       </template>
     </VSwiper>
+
+    <div class="container">
+      <VButton class="work__button">Рассчитать свой проект</VButton>
+    </div>
   </section>
 </template>
 
 <script setup>
 import VSwiper from '../VSwiper.vue'
 import VCard from '../VCard.vue'
+import VButton from '../VButton.vue'
 
 const testCard = {
   title: 'Спальни',
@@ -52,6 +57,14 @@ const breakpoints = {
   .swiper-button-prev,
   .swiper-button-next {
     display: none;
+  }
+
+  &__button {
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
   }
 }
 </style>

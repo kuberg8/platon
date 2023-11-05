@@ -2,10 +2,12 @@
   <main class="main">
     <IndexIntro />
     <IndexWorks />
-    <IndexOnline />
+    <IndexOnline class="online__desktop" />
+    <IndexInsta class="insta__mobile" />
     <IndexProduction />
-    <IndexInsta />
+    <IndexInsta class="insta__desktop" />
     <IndexReviews />
+    <IndexOnline class="online__mobile" />
     <IndexAdvantages />
     <IndexAsks />
     <IndexAbout />
@@ -58,14 +60,15 @@ import IndexAdvantages from '@/components/index/advantages.vue'
     }
 
     &-second {
-      top: rem(2439);
+      top: rem(2220);
+      left: rem(-100);
       display: block;
       position: absolute;
-      left: 0;
       z-index: -1;
       
       @include media-breakpoint-up(lg) {
-        top: rem(1139);
+        top: rem(1189);
+        left: auto;
         width: rem(597);
         height: rem(1542);
       }

@@ -23,15 +23,16 @@ import VCheckbox from '../VCheckbox.vue'
 
 <style lang="scss">
 .asks {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr;
   background: $color-grey;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   z-index: 1;
   position: relative;
   margin-bottom: rem(-50);
-
+  
   @include media-breakpoint-up(lg) {
+    display: grid;
     height: rem(316);
     grid-template-columns: rem(410) rem(440);
     column-gap: rem(131);

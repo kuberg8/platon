@@ -49,10 +49,6 @@ const breakpoints = {
 
 <style lang="scss">
 .work {
-  @include media-breakpoint-up(lg) {
-    height: rem(829);
-  }
-
   .swiper-button-prev,
   .swiper-button-next {
     display: none;

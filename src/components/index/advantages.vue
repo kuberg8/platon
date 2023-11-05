@@ -30,7 +30,7 @@ const breakpoints = {
 
 <style lang="scss">
 .advantages {
-  background: linear-gradient(0deg, #333 0%, rgba(51, 51, 51, 0) 78.58%), url('/assets/images/advantages.png'),
+  background: linear-gradient(0deg, #333 0%, rgba(51, 51, 51, 0) 78.58%), url('/assets/images/advantages-mobile.png'),
     lightgray 50% / cover no-repeat;
   background-size: cover;
   margin: rem(-60) 0;
@@ -38,6 +38,8 @@ const breakpoints = {
   min-height: rem(554);
 
   @include media-breakpoint-up(lg) {
+    background: linear-gradient(0deg, #333 0%, rgba(51, 51, 51, 0) 78.58%), url('/assets/images/advantages.png'),
+      lightgray 50% / cover no-repeat;
     min-height: rem(881);
     margin: rem(-200) 0;
     padding: rem(200) 0;
@@ -53,7 +55,7 @@ const breakpoints = {
   }
 
   &__swiper {
-    padding: 0 rem(20);
+    padding: 0 rem(20) rem(60);
 
     @include media-breakpoint-up(lg) {
       padding: 0 rem(130);

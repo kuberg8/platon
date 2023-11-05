@@ -14,7 +14,7 @@
 <script setup>
 const blocks = [
   {
-    title: 'Клиент обращается в компанию',
+    title: 'Клиент обращается в\u00A0компанию',
     text: 'Наш менеджер связывается по заявке и дает подробную бесплатную консультацию',
   },
   {
@@ -83,61 +83,101 @@ const blocks = [
     }
 
     &:nth-child(1)::after {
-      top: rem(127);
-      left: rem(226);
       background: url('/assets/images/steps/step1.svg');
-      width: rem(396);
-      height: rem(267);
-      background-size: rem(396) rem(267);
+      top: rem(-65);
+      left: rem(216);
+      width: rem(356);
+      height: rem(227);
+      background-size: rem(356) rem(227);
+
+      @include media-breakpoint-up(lg) {
+        top: rem(127);
+        left: rem(226);
+        width: rem(396);
+        height: rem(267);
+        background-size: rem(396) rem(267);
+      }
     }
 
     &:nth-child(2)::before {
-      top: rem(24);
-      left: rem(202);
       background: url('/assets/images/steps/step2.2.svg');
-      width: rem(157);
-      height: rem(76);
-      background-size: rem(157) rem(76);
       z-index: -1;
+      top: rem(-20);
+      left: rem(80);
+      width: rem(127);
+      height: rem(46);
+      background-size: rem(127) rem(46);
+
+      @include media-breakpoint-up(lg) {
+        top: rem(24);
+        left: rem(202);
+        width: rem(157);
+        height: rem(76);
+        background-size: rem(157) rem(76);
+      }
     }
 
     &:nth-child(2)::after {
-      top: rem(-152);
-      left: rem(295);
-      background: url('/assets/images/steps/step3.svg');
-      width: rem(220);
-      height: rem(212);
-      background-size: rem(220) rem(212);
+      @include media-breakpoint-up(lg) {
+        top: rem(-152);
+        left: rem(295);
+        background: url('/assets/images/steps/step3.svg');
+        width: rem(220);
+        height: rem(212);
+        background-size: rem(220) rem(212);
+      }
     }
 
     &:nth-child(3)::before {
-      bottom: calc(100% - rem(38));
-      left: 0;
       background: url('/assets/images/steps/step4.svg'), url('/assets/images/steps/step4.1.svg');
-      width: rem(153);
-      height: rem(158);
-      background-position: top left, bottom right;
       background-repeat: no-repeat;
-      background-size: rem(95) rem(95), rem(105) rem(95);
       z-index: -1;
+      top: rem(-42);
+      left: rem(188);
+      width: rem(101);
+      height: rem(74);
+      background-position: top right, bottom left;
+      background-size: rem(60) rem(60), rem(69) rem(62);
+
+      @include media-breakpoint-up(lg) {
+        bottom: calc(100% - rem(38));
+        left: 0;
+        top: auto;
+        width: rem(153);
+        height: rem(158);
+        background-position: top left, bottom right;
+        background-size: rem(95) rem(95), rem(105) rem(95);
+      }
     }
 
     &:nth-child(3)::after {
-      top: rem(145);
-      left: rem(195);
-      background: url('/assets/images/steps/step6.1.svg');
-      width: rem(431);
-      height: rem(445);
-      background-size: rem(431) rem(445);
+      @include media-breakpoint-up(lg) {
+        top: rem(145);
+        left: rem(195);
+        background: url('/assets/images/steps/step6.1.svg');
+        width: rem(431);
+        height: rem(445);
+        background-size: rem(431) rem(445);
+      }
     }
 
     &:nth-child(4)::before {
-      bottom: rem(65);
-      right: calc(100% + #{rem(30)});
       background: url('/assets/images/steps/step5.svg');
-      width: rem(174);
-      height: rem(166);
-      background-size: rem(174) rem(166);
+      top: rem(-62);
+      left: rem(118);
+      width: rem(104);
+      height: rem(96);
+      background-size: rem(104) rem(96);
+
+      @include media-breakpoint-up(lg) {
+        top: auto;
+        left: auto;
+        bottom: rem(65);
+        right: calc(100% + #{rem(30)});
+        width: rem(174);
+        height: rem(166);
+        background-size: rem(174) rem(166);
+      }
     }
 
     &:nth-child(4)::after {
@@ -151,11 +191,15 @@ const blocks = [
 
     &:nth-child(5)::after {
       background: url('/assets/images/steps/step6.3.svg');
-      width: rem(173);
-      height: rem(110);
-      right: 0;
-      bottom: rem(168);
-      background-size: rem(173) rem(110);
+      right: rem(70);
+      bottom: rem(144);
+      width: rem(133);
+      height: rem(70);
+      background-size: rem(133) rem(70);
+      
+      @include media-breakpoint-up(lg) {
+
+      }
     }
   }
 
@@ -176,6 +220,11 @@ const blocks = [
     font-weight: 400;
     opacity: 0.78;
     line-height: 154.4%;
+    margin-top: rem(-20);
+
+    @include media-breakpoint-up(lg) {
+      margin-top: auto;
+    }
   }
 }
 </style>

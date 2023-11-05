@@ -30,6 +30,7 @@ defineProps({
   background: rgba(51, 51, 51, 0.21);
   backdrop-filter: blur(15px);
   padding: rem(16);
+  
 
   &-text {
     font-size: rem(14);

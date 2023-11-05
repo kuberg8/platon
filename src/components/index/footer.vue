@@ -43,15 +43,14 @@ defineProps({
 
 <style lang="scss">
 .footer {
-  @include base-container;
-
   display: flex;
   flex-direction: column;
   column-gap: rem(167);
   background: $color-bg;
-  border-top: 1px dashed $color-primary;
-
+  padding: rem(20) rem(15);
+  
   @include media-breakpoint-up(lg) {
+    border-top: 1px dashed $color-primary;
     flex-direction: row;
     padding: rem(77.21) rem(130) rem(35.21);
   }
@@ -76,6 +75,9 @@ defineProps({
   }
 
   &__logo {
+    height: rem(71);
+    width: rem(159);
+
     @include media-breakpoint-up(lg) {
       height: rem(150);
       width: rem(337);

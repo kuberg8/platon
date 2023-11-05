@@ -18,16 +18,27 @@ const text = `В 2014 году была основана Столярная Ма
 .about {
   display: flex;
   background-size: cover;
-  background-image: url('/assets/images/about.png');
+  background-image: url('/assets/images/about-mobile.png');
+
+  @include media-breakpoint-up(lg) {
+    background-image: url('/assets/images/about.png');
+  }
 
   &__text {
     display: flex;
     flex-direction: column;
-    
+    row-gap: rem(30);
+    width: rem(211);
+    font-size: rem(14);
+    line-height: rem(18);
+    padding: 0 0 rem(27);
+
     @include media-breakpoint-up(lg) {
+      font-size: rem(18);
       row-gap: rem(80);
       width: rem(767);
       padding: rem(116.23) rem(32);
+      line-height: 202.9%;
     }
   }
 }

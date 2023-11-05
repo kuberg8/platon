@@ -65,7 +65,8 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
   transition: 0.5s;
   background-color: $color-grey;
   font-size: rem(12);
-  
+  height: rem(387);
+
   @include media-breakpoint-up(lg) {
     height: rem(739);
     font-size: rem(18);
@@ -96,7 +97,11 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
   &__wrapper {
     padding-top: rem(20);
     margin-top: rem(-20);
-    padding-bottom: rem(100);
+    padding-bottom: rem(60);
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: rem(100);
+    }
 
     .swiper-pagination-bullets {
       bottom: 0 !important;
@@ -181,17 +186,23 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
   }
 
   &__subtitle {
+    display: flex;
+    align-items: center;
+    height: rem(24);
     font-size: rem(14);
 
     @include media-breakpoint-up(lg) {
+      height: auto;
       font-size: rem(24);
       line-height: 167.9%;
     }
   }
 
   &__unit {
+    display: flex;
+    align-items: center;
     height: rem(24);
-    
+
     @include media-breakpoint-up(lg) {
       height: rem(37);
     }

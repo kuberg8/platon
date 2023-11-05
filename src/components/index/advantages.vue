@@ -33,8 +33,7 @@ const breakpoints = {
   background: linear-gradient(0deg, #333 0%, rgba(51, 51, 51, 0) 78.58%), url('/assets/images/advantages-mobile.png'),
     lightgray 50% / cover no-repeat;
   background-size: cover;
-  margin: rem(-60) 0;
-  padding: rem(50) 0;
+  padding: rem(38) 0;
   min-height: rem(554);
 
   @include media-breakpoint-up(lg) {

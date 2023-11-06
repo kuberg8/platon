@@ -48,8 +48,6 @@ defineProps({
 
 <style lang="scss">
 .header {
-  @include base-container;
-
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -58,14 +56,17 @@ defineProps({
   background: rgba(51, 51, 51, 0.21);
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
-  padding-top: rem(14.6);
-  padding-bottom: rem(14.6);
   z-index: 100;
   row-gap: rem(20);
-
+  margin: 0 rem(15);
+  padding: rem(5) 0 rem(20);
+  
   @include media-breakpoint-up(lg) {
+    width: 100%;
     position: fixed;
     flex-direction: row;
+    padding: rem(14.6) rem(100);
+    margin: 0;
   }
 
   &__logo {

@@ -63,6 +63,7 @@ export default {
   background: $color-primary;
   border-radius: 5px;
   transition: 0.2s;
+  font-size: rem(18);
 
   &:hover {
     background: $color-hover-primary;

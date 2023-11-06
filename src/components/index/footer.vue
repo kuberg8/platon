@@ -3,8 +3,21 @@
     <div class="footer__first">
       <img class="footer__logo" src="@/assets/images/logo.svg" />
       <div class="footer__number">+ 375 (29) 127-48-18</div>
+      <div class="footer__mobile-title">Контактная информация</div>
+      <div class="footer__mobile">
+        <div class="footer__mobile-label">Телефон:</div>
+        <div>+ 375 (29) 127-48-18</div>
+      </div>
       <div>
         <VButton class="footer__button">Заказать звонок</VButton>
+      </div>
+      <div class="footer__mobile">
+        <div class="footer__mobile-label">Эл. почта:</div>
+        <div>stolyarka_platon@mail.ru</div>
+      </div>
+      <div class="footer__mobile">
+        <div class="footer__mobile-label">Адрес:</div>
+        <div>г. Гомель, ул. Производителей 14</div>
       </div>
       <div>Платон © 2023</div>
     </div>
@@ -59,7 +72,11 @@ defineProps({
   &__first {
     display: flex;
     flex-direction: column;
-    row-gap: rem(10);
+    row-gap: rem(20);
+
+    @include media-breakpoint-up(lg) {
+      row-gap: rem(10);
+    }
   }
 
   &__links {
@@ -86,12 +103,12 @@ defineProps({
   }
 
   &__number {
-    font-weight: 600;
-    white-space: nowrap;
-    font-size: rem(14);
-    line-height: 140%;
+    display: none;
 
     @include media-breakpoint-up(lg) {
+      display: block;
+      font-weight: 600;
+      white-space: nowrap;
       line-height: 202.9%;
       font-size: rem(34);
     }
@@ -140,7 +157,6 @@ defineProps({
 
     @include media-breakpoint-up(lg) {
       position: static;
-      display: block;
       margin-top: rem(40);
     }
   }
@@ -152,6 +168,35 @@ defineProps({
     @include media-breakpoint-up(lg) {
       width: auto;
       height: rem(36);
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    line-height: 150%;
+    font-size: rem(14);
+
+    &-label {
+      font-size: rem(14);
+      line-height: 140%;
+      font-weight: 400;
+      color: #828282;
+    }
+
+    &-title {
+      font-size: rem(16);
+      font-weight: 500;
+      line-height: 140%;
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

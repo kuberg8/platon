@@ -150,10 +150,10 @@ defineProps({
   }
 
   &__button {
-    width: 100%;
-
+    display: none;
+    
     @include media-breakpoint-up(lg) {
-      width: auto;
+      display: flex;
       height: rem(36);
     }
   }

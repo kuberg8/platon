@@ -3,6 +3,7 @@
     <div class="intro">
       <div>
         <div class="intro__title">Мы&nbsp;производим мебель из массива</div>
+        <VButton class="intro__button"> Заказать звонок </VButton>
         <div class="intro__text">
           Нестандартная планировка жилого, коммерческого, или офисного помещения? Или требуется воплотить в жизнь
           сложную дизайнерскую задумку? Мы изготавливаем мебель на заказ по индивидуальным меркам!
@@ -54,12 +55,12 @@ const cards = [
   display: grid;
   grid-template-columns: 1fr;
   column-gap: rem(155);
-  border-radius: 10px;
   background: rgba(51, 51, 51, 0.21);
-  box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
+  box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   
   @include media-breakpoint-up(lg) {
+    border-radius: 10px;
     height: rem(800);
     grid-template-columns: rem(950) rem(487);
     margin-top: rem(176);
@@ -72,7 +73,7 @@ const cards = [
     line-height: 107.5%;
     text-align: center;
     letter-spacing: rem(1.4);
-    
+
     @include media-breakpoint-up(lg) {
       letter-spacing: rem(2.625);
       font-size: rem(75);
@@ -98,7 +99,7 @@ const cards = [
     column-gap: rem(10);
     row-gap: rem(10);
     margin-top: rem(20);
-    
+
     @include media-breakpoint-up(lg) {
       display: flex;
       column-gap: rem(14);
@@ -113,7 +114,7 @@ const cards = [
     background: #333;
     box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.4);
     padding: rem(49) rem(43);
-    
+
     @include media-breakpoint-up(lg) {
       // height: rem(690);
       height: auto;
@@ -155,6 +156,15 @@ const cards = [
     //   color: rgba(#f2f2f2, 0.7);
     //   width: rem(365.555);
     // }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: rem(20);
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
   }
 }
 </style>

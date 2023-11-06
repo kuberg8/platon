@@ -74,6 +74,7 @@ const cards = [
       font-weight: 800;
       letter-spacing: rem(2.625);
       font-size: rem(75);
+      line-height: 107.5%;
       width: rem(772.236);
       margin-bottom: rem(20);
       margin-top: rem(64);

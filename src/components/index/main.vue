@@ -62,7 +62,7 @@ import IndexAdvantages from '@/components/index/advantages.vue'
     }
 
     &-second {
-      top: rem(2220);
+      top: rem(2045);
       left: rem(-100);
       display: block;
       position: absolute;

@@ -49,7 +49,7 @@ import IndexAdvantages from '@/components/index/advantages.vue'
       display: block;
       position: absolute;
       left: rem(-90);
-      top: rem(-300);
+      top: rem(-510);
       object-fit: contain;
       z-index: -1;
       width: rem(222.5);

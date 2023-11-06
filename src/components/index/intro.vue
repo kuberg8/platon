@@ -3,7 +3,6 @@
     <div class="intro">
       <div>
         <div class="intro__title">Мы&nbsp;производим мебель из массива</div>
-        <VButton class="intro__button"> Заказать звонок </VButton>
         <div class="intro__text">
           Нестандартная планировка жилого, коммерческого, или офисного помещения? Или требуется воплотить в жизнь
           сложную дизайнерскую задумку? Мы изготавливаем мебель на заказ по индивидуальным меркам!
@@ -68,19 +67,16 @@ const cards = [
   }
 
   &__title {
-    font-size: rem(40);
-    font-weight: 800;
-    line-height: 107.5%;
-    text-align: center;
-    letter-spacing: rem(1.4);
-
+    display: none;
+    
     @include media-breakpoint-up(lg) {
+      display: block;
+      font-weight: 800;
       letter-spacing: rem(2.625);
       font-size: rem(75);
       width: rem(772.236);
       margin-bottom: rem(20);
       margin-top: rem(64);
-      text-align: left;
     }
   }
 
@@ -156,15 +152,6 @@ const cards = [
     //   color: rgba(#f2f2f2, 0.7);
     //   width: rem(365.555);
     // }
-  }
-
-  &__button {
-    width: 100%;
-    margin-top: rem(20);
-
-    @include media-breakpoint-up(lg) {
-      display: none;
-    }
   }
 }
 </style>

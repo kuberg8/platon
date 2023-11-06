@@ -28,6 +28,7 @@
         г. Гомель, ул. производителей 14
       </div>
       <b class="header__phone">тел. + 375 (29) 127-48-18</b>
+      <div class="header__title">Мы&nbsp;производим мебель из массива</div>
       <VButton class="header__button"> Заказать звонок </VButton>
     </div>
     <div class="header__social">
@@ -58,8 +59,8 @@ defineProps({
   z-index: 100;
   row-gap: rem(20);
   margin: 0 rem(15);
-  padding: rem(5) 0 rem(20);
-  
+  padding: rem(5) 0 0;
+
   @include media-breakpoint-up(lg) {
     box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
     width: 100%;
@@ -150,10 +151,11 @@ defineProps({
   }
 
   &__button {
-    display: none;
-    
+    width: 100%;
+    height: rem(45);
+
     @include media-breakpoint-up(lg) {
-      display: flex;
+      width: auto;
       height: rem(36);
     }
   }
@@ -173,6 +175,18 @@ defineProps({
     .btn {
       width: rem(50) !important;
       height: rem(50) !important;
+    }
+  }
+
+  &__title {
+    font-size: rem(40);
+    font-weight: 800;
+    line-height: 107.5%;
+    text-align: center;
+    letter-spacing: rem(1.4);
+
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

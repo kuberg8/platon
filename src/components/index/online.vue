@@ -76,9 +76,11 @@ import VCheckbox from '../VCheckbox.vue'
     line-height: rem(18);
     max-width: rem(260);
     margin-bottom: rem(15);
-
+    
     @include media-breakpoint-up(lg) {
-      width: rem(798.633);
+      max-width: rem(798.633);
+      font-size: rem(18);
+      line-height: 202.9%;
       max-width: auto;
       margin-bottom: rem(26.9);
     }

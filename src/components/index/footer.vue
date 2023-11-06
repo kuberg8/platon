@@ -163,11 +163,10 @@ defineProps({
 
   &__button {
     width: rem(176);
-    height: rem(26);
+    height: rem(36);
 
     @include media-breakpoint-up(lg) {
       width: auto;
-      height: rem(36);
     }
   }
 

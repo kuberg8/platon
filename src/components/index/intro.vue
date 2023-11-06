@@ -57,9 +57,9 @@ const cards = [
   column-gap: rem(155);
   background: rgba(51, 51, 51, 0.21);
   backdrop-filter: blur(10px);
-  box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   
   @include media-breakpoint-up(lg) {
+    box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     height: rem(800);
     grid-template-columns: rem(950) rem(487);

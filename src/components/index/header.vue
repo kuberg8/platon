@@ -54,7 +54,6 @@ defineProps({
   top: 0;
   left: 0;
   background: rgba(51, 51, 51, 0.21);
-  box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
   z-index: 100;
   row-gap: rem(20);
@@ -62,6 +61,7 @@ defineProps({
   padding: rem(5) 0 rem(20);
   
   @include media-breakpoint-up(lg) {
+    box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
     width: 100%;
     position: fixed;
     flex-direction: row;

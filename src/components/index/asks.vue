@@ -1,7 +1,7 @@
 <template>
   <section class="asks">
     <div class="asks__left">
-      <img class="asks__img" src="assets/images/ask.png" />
+      <img class="asks__img" src="assets/images/grass.png" />
       <div class="asks__title">Остались вопросы?</div>
       <div class="asks__text">Оставьте заявку, мы вас проконсультируем и ответим на&nbsp;Ваши вопросы</div>
     </div>
@@ -12,6 +12,8 @@
       <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
       <VButton type="submit">Оставить заявку на звонок</VButton>
     </form>
+
+    <VButton class="asks__button">Оставить заявку на звонок</VButton>
   </section>
 </template>
 
@@ -24,14 +26,15 @@ import VCheckbox from '../VCheckbox.vue'
 <style lang="scss">
 .asks {
   display: grid;
+  align-items: flex-end;
   grid-template-columns: 1fr;
   background: $color-grey;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   z-index: 1;
   position: relative;
   margin-bottom: rem(-50);
-  padding: rem(10) rem(15) rem(30);
-
+  padding: rem(30) rem(15) rem(10);
+  
   @include media-breakpoint-up(lg) {
     display: grid;
     grid-template-columns: rem(410) rem(440);
@@ -41,12 +44,17 @@ import VCheckbox from '../VCheckbox.vue'
   }
 
   &__img {
-    display: none;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    width: rem(724.119);
-    height: rem(1085.627);
+    left: rem(200);
+    bottom: rem(60);
+    width: rem(215);
+
+    @include media-breakpoint-up(lg) {
+      left: rem(50);
+      bottom: rem(-40);
+      width: rem(724.119);
+      height: rem(1085.627);
+    }
   }
 
   &__left {
@@ -79,7 +87,7 @@ import VCheckbox from '../VCheckbox.vue'
     font-size: rem(14);
     font-weight: 400;
     line-height: rem(18);
-    
+
     @include media-breakpoint-up(lg) {
       font-size: rem(18);
       line-height: 154.4%;
@@ -104,6 +112,16 @@ import VCheckbox from '../VCheckbox.vue'
     .btn {
       width: 100%;
       color: #333;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    color: #fff;
+    margin-top: rem(20);
+
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

@@ -28,7 +28,7 @@ const cards = [
   row-gap: rem(50);
 
   @include media-breakpoint-up(lg) {
-    row-gap: rem(80);
+    row-gap: 0;
   }
 
   &__row {
@@ -38,6 +38,7 @@ const cards = [
     row-gap: rem(30);
     
     @include media-breakpoint-up(lg) {
+        padding: rem(80);
         grid-template-columns: repeat(6, 1fr);
         column-gap: rem(125);
     }

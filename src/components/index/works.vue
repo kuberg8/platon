@@ -1,5 +1,6 @@
 <template>
-  <section id="work">
+  <section class="work__section">
+    <div id="work" class="work__anchor" />
     <VSwiper
       :breakpoints="breakpoints"
       :slidesPerView="1.1"
@@ -54,6 +55,19 @@ const breakpoints = {
 
 <style lang="scss">
 .work {
+  &__section {
+    position: relative;
+  }
+
+  &__anchor {
+    position: absolute;
+    top: rem(-25);
+
+    @include media-breakpoint-up(lg) {
+      top: rem(-100);
+    }
+  }
+
   .swiper-button-prev,
   .swiper-button-next {
     display: none;

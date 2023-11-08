@@ -27,8 +27,18 @@ const headerLinks = [
       scroll('#online')
     },
   },
-  { text: 'О нас', link: '#about' },
-  { text: 'Наши работы', link: '#work' },
+  {
+    text: 'О нас',
+    link: '#about',
+    event: (e) => {
+      e.preventDefault()
+      scroll('#about')
+    },
+  },
+  {
+    text: 'Наши работы',
+    link: '#work'
+  },
   { text: 'Контакты', link: '#contacts' },
 ]
 
@@ -41,7 +51,14 @@ const footerLinks = [
       scroll('#online')
     },
   },
-  { text: 'О нас', link: '#about' },
+  {
+    text: 'О нас',
+    link: '#about',
+    event: (e) => {
+      e.preventDefault()
+      scroll('#about')
+    },
+  },
   { text: 'Наши работы', link: '#work' },
   {
     text: 'Отзывы',

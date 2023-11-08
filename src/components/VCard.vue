@@ -202,6 +202,7 @@ const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
   &__unit {
     display: flex;
     align-items: center;
+    column-gap: rem(5);
     height: rem(24);
 
     @include media-breakpoint-up(lg) {

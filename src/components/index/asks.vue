@@ -6,7 +6,7 @@
       <div class="asks__text">Оставьте заявку, мы вас проконсультируем и ответим на&nbsp;Ваши вопросы</div>
     </div>
 
-    <form class="asks__form" @submit.prevent>
+    <form class="asks__form" @submit.prevent="submit">
       <VInput placeholder="Ваше имя" required />
       <VInput placeholder="Номер телефона" required />
       <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
@@ -34,7 +34,7 @@ import VCheckbox from '../VCheckbox.vue'
   position: relative;
   margin-bottom: rem(-50);
   padding: rem(30) rem(15) rem(10);
-  
+
   @include media-breakpoint-up(lg) {
     display: grid;
     grid-template-columns: rem(410) rem(440);

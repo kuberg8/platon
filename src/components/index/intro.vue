@@ -13,19 +13,24 @@
       </div>
 
       <div>
-        <form @submit.prevent class="intro__form">
+        <form ref="form" @submit.prevent="submit" class="intro__form">
           <div class="intro__form-title">Оставьте заявку на звонок</div>
           <div class="intro__form-subtitle">Наш менеджер свяжется с вами в течение 5 минут</div>
           <div class="intro__form-fields">
-            <VInput placeholder="Ваше имя" required />
-            <VInput placeholder="Номер телефона " required />
-            <VInput placeholder="E-mail" required />
-            <VInput placeholder="Дополнительная информация" />
-            <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
-            <!-- <VFile>Добавить свой эскиз</VFile> -->
+            <VInput v-model="formData.name" placeholder="Ваше имя" required />
+            <VInput
+              v-model="formData.phone"
+              type="tel"
+              pattern="[0-9]{10}"
+              title="+7 ### ### ##-##"
+              placeholder="Номер телефона "
+              required
+            />
+            <VInput v-model="formData.email" type="email" placeholder="E-mail" required />
+            <VInput v-model="formData.info" placeholder="Дополнительная информация" />
+            <VCheckbox v-model="formData.agree">Я принимаю условия обработки персональных данных</VCheckbox>
             <VButton type="submit">Оставить заявку на звонок</VButton>
           </div>
-          <!-- <span class="intro__form-info">Чтобы добавить сразу несколько изображений, используйте клавишу Shift</span> -->
         </form>
       </div>
     </div>
@@ -33,10 +38,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import VIntroCard from '@/components/VIntroCard.vue'
 import VInput from '../VInput.vue'
 import VButton from '../VButton.vue'
 import VCheckbox from '../VCheckbox.vue'
+import axios from 'axios'
 
 const cards = [
   { title: 'Собственная\nмастерская', image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg' },
@@ -47,6 +54,36 @@ const cards = [
     image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg',
   },
 ]
+
+const defaultValue = {
+  name: '',
+  phone: '',
+  email: '',
+  info: '',
+  agree: false,
+}
+const formData = ref({ ...defaultValue })
+
+const submit = async () => {
+  const { name, phone, email, info, agree } = formData.value
+  const isError = Object.values({ name, phone, email, agree }).some((val) => !val)
+
+  if (!isError) {
+    let text = ''
+
+    const formDataArray = Object.entries({ name, phone, email, info })
+    formDataArray.forEach(([key, value], i) => {
+      if (value) {
+        text += `${key}: ${value}${i < formDataArray.length - 1 ? '%0A' : ''}`
+      }
+    })
+
+    const url = `https://api.telegram.org/bot${process.env.VUE_APP_TG_TOKEN}/sendMessage?chat_id=${process.env.VUE_APP_TG_ID}&text=${text}&parse_mode=HTML`
+    await axios.get(url)
+
+    formData.value = { ...defaultValue }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -56,7 +93,7 @@ const cards = [
   column-gap: rem(155);
   background: rgba(51, 51, 51, 0.21);
   backdrop-filter: blur(10px);
-  
+
   @include media-breakpoint-up(lg) {
     box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
@@ -68,7 +105,7 @@ const cards = [
 
   &__title {
     display: none;
-    
+
     @include media-breakpoint-up(lg) {
       display: block;
       font-weight: 800;

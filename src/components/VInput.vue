@@ -1,16 +1,50 @@
 <template>
   <div class="field__wrapper">
     <span v-if="required" class="field__required">*</span>
-    <input class="field" :class="{ required }" v-bind="$attrs" />
+    <input
+      v-model="val"
+      @input="handleInput"
+      class="field"
+      :class="{ required }"
+      v-bind="$attrs"
+      :required="required"
+    />
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { ref, defineProps, defineEmits, watch } from 'vue'
 
-defineProps({
+const props = defineProps({
   required: Boolean,
+  phone: Boolean,
+  modelValue: {
+    type: String,
+    default: '',
+  },
 })
+
+const emit = defineEmits(['update:modelValue'])
+
+const val = ref('')
+
+watch(
+  () => props.modelValue,
+  (nVal) => (val.value = nVal),
+  {
+    immediate: true,
+  }
+)
+
+watch(
+  () => props.modelValue,
+  (nVal) => (val.value = nVal),
+  {
+    immediate: true,
+  }
+)
+
+const handleInput = () => emit('update:modelValue', val.value)
 </script>
 
 <style lang="scss">
@@ -22,7 +56,9 @@ defineProps({
   align-items: center;
   border-radius: 5px;
   background: #4f4f4f;
-//   color: #bdbdbd;
+  transition: 0.5s border;
+  border: 1px solid transparent;
+  //   color: #bdbdbd;
 
   &.required {
     padding-left: rem(35);
@@ -47,6 +83,10 @@ defineProps({
 
   &::placeholder {
     color: #bdbdbd;
+  }
+
+  &.error {
+    border: 1px solid #dc143c;
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <div class="checkbox" @click="check = !check">
+  <div class="checkbox" @click="handleInput(!check)">
+    <input v-model="check" type="checkbox" required class="checkbox__input" />
     <svg
       class="checkbox__icon"
       width="18"
@@ -15,14 +16,42 @@
     <div class="checkbox__text">
         <slot />
     </div>
-    <input hidden />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineProps, defineEmits, watch } from 'vue'
+
+const props = defineProps({
+  required: Boolean,
+  phone: Boolean,
+  modelValue: {
+    type: String,
+    default: '',
+  },
+})
+
+const emit = defineEmits(['update:modelValue'])
 
 const check = ref(false)
+
+watch(
+  () => props.modelValue,
+  (nVal) => (check.value = nVal),
+  {
+    immediate: true,
+  }
+)
+
+watch(
+  () => props.modelValue,
+  (nVal) => (check.value = nVal),
+  {
+    immediate: true,
+  }
+)
+
+const handleInput = (val) => emit('update:modelValue', val)
 </script>
 
 <style lang="scss">
@@ -36,6 +65,14 @@ const check = ref(false)
   line-height: 154.4%;
   cursor: pointer;
   color: rgba(#F2F2F2, 0.7);
+  position: relative;
+
+  &__input {
+    opacity: 0;
+    position: absolute;
+    left: rem(-6);
+    bottom: rem(-5);
+  }
 
   &__icon {
     width: rem(18);

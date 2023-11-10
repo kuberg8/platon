@@ -39,7 +39,9 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   flex-direction: column;
   position: relative;
   row-gap: rem(50);
-  
+  max-width: 100vw;
+  overflow: hidden;
+
   @include media-breakpoint-up(lg) {
     row-gap: rem(200);
   }
@@ -53,7 +55,7 @@ import IndexAdvantages from '@/components/index/advantages.vue'
       object-fit: contain;
       z-index: -1;
       width: rem(222.5);
-      
+
       @include media-breakpoint-up(lg) {
         top: 0;
         left: 0;
@@ -67,7 +69,7 @@ import IndexAdvantages from '@/components/index/advantages.vue'
       display: block;
       position: absolute;
       z-index: -1;
-      
+
       @include media-breakpoint-up(lg) {
         top: rem(1189);
         left: auto;

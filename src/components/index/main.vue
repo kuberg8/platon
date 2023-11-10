@@ -39,8 +39,6 @@ import IndexAdvantages from '@/components/index/advantages.vue'
   flex-direction: column;
   position: relative;
   row-gap: rem(50);
-  max-width: 100vw;
-  overflow: hidden;
 
   @include media-breakpoint-up(lg) {
     row-gap: rem(200);

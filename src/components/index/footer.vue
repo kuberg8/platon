@@ -9,7 +9,7 @@
         <div>{{ contacts.phone }}</div>
       </div>
       <div>
-        <VButton class="footer__button">Заказать звонок</VButton>
+        <VButton @click="$emit('showDialog')" class="footer__button">Заказать звонок</VButton>
       </div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Эл. почта:</div>

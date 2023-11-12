@@ -29,7 +29,7 @@
       </div>
       <b v-if="contacts.phone" class="header__phone">тел. {{ contacts.phone }}</b>
       <div class="header__title">Мы&nbsp;производим мебель из массива</div>
-      <VButton class="header__button"> Заказать звонок </VButton>
+      <VButton @click="$emit('showDialog')" class="header__button"> Заказать звонок </VButton>
     </div>
     <div v-if="contacts" class="header__social">
       <VButton v-if="contacts.vk" text icon="vk" tag="a" :href="contacts.vk" target="_blank" />

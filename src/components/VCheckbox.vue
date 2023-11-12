@@ -57,7 +57,6 @@ const handleInput = (val) => emit('update:modelValue', val)
 <style lang="scss">
 .checkbox {
   display: flex;
-  align-items: flex-end;
   // column-gap: rem(23);
   column-gap: rem(13);
   font-size: rem(12);
@@ -66,12 +65,18 @@ const handleInput = (val) => emit('update:modelValue', val)
   cursor: pointer;
   color: rgba(#F2F2F2, 0.7);
   position: relative;
+  align-items: center;
+  
+  @include media-breakpoint-up(lg) {
+    align-items: flex-end;
+  }
 
   &__input {
     opacity: 0;
     position: absolute;
-    left: rem(-6);
-    bottom: rem(-5);
+    left: rem(0);
+    bottom: rem(0);
+    margin: 0;
   }
 
   &__icon {

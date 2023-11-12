@@ -24,15 +24,14 @@ import VIntroCard from '@/components/VIntroCard.vue'
 import VIntroForm from '../VIntroForm.vue'
 
 const cards = [
-  { title: 'Собственная\nмастерская', image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg' },
-  { title: 'Поможем\nс чертежами', image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg' },
-  { title: 'Доставка\nи установка', image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg' },
+  { title: 'Собственная\nмастерская', image: 'assets/images/intro/111.png' },
+  { title: 'Поможем\nс чертежами', image: 'assets/images/intro/222.png' },
+  { title: 'Доставка\nи установка', image: 'assets/images/intro/333.png' },
   {
     title: 'Материалы от\u00A0фанеры\u00A0до\u00A0массива',
-    image: 'https://ruplans.ru/cms_files/39111/1035/108/1_1_sovremenniy.jpg',
+    image: 'assets/images/intro/444.png',
   },
 ]
-
 </script>
 
 <style lang="scss">

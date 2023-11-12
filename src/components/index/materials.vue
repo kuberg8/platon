@@ -2,7 +2,7 @@
   <section class="materials">
     <h1>Используемые материалы</h1>
     <div class="materials__row">
-      <VMaterialsCard v-for="(card, i) in cards" :key="i" v-bind="card" />
+      <VMaterialsCard v-for="(card, i) in cards" :key="i" v-bind="card" :number="i + 1" />
     </div>
   </section>
 </template>
@@ -11,10 +11,18 @@
 import VMaterialsCard from '../VMaterialsCard.vue'
 
 const cards = [
-  ...new Array(12).fill({
-    title: 'Дуб',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmKUpf34vB6N_erMqK2DBRG0IjVEw_M6eSSQ&usqp=CAU',
-  }),
+  { title: 'Дуб' },
+  { title: 'Листвиница' },
+  { title: 'Береза' },
+  { title: 'Сосна' },
+  { title: 'Падук' },
+  { title: 'Тик' },
+  { title: 'Осина' },
+  { title: 'МДФ' },
+  { title: 'Клён' },
+  { title: 'ЛДСП' },
+  { title: 'Ясень' },
+  { title: 'Фанера' },
 ]
 </script>
 
@@ -36,11 +44,11 @@ const cards = [
     column-gap: rem(20);
     grid-template-columns: repeat(3, 1fr);
     row-gap: rem(30);
-    
+
     @include media-breakpoint-up(lg) {
-        padding: rem(80);
-        grid-template-columns: repeat(6, 1fr);
-        column-gap: rem(125);
+      padding: rem(80);
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: rem(125);
     }
   }
 }

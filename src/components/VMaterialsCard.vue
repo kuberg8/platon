@@ -1,6 +1,6 @@
 <template>
   <div class="materials__card">
-    <img :src="image" />
+    <img :src="`assets/images/materials/${number}.png`" />
     {{ title }}
   </div>
 </template>
@@ -9,8 +9,8 @@
 import { defineProps } from 'vue'
 
 defineProps({
-  image: String,
   title: String,
+  number: Number
 })
 </script>
 

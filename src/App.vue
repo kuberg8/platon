@@ -71,7 +71,7 @@ const footerLinks = [
   { text: 'Контакты', link: '#contacts' },
 ]
 
-onMounted(() => scroll(window.location.hash))
+onMounted(() => window.location.hash && scroll(window.location.hash))
 </script>
 
 <style lang="scss">

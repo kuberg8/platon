@@ -3,19 +3,19 @@
     <h2 class="card__title">{{ title }}</h2>
 
     <div class="card__img-wrapper">
-      <VButton text icon="arrow" class="card__arrow-left" @click="prevItem" />
-      <img class="card__img" :src="activeItem.img" />
-      <VButton text icon="arrow" class="card__arrow-right" @click="nextItem" />
+      <VButton v-if="items.length > 1" text icon="arrow" class="card__arrow-left" @click="prevItem" />
+      <img v-if="activeItem.photo" class="card__img" :src="activeItem.photo.url" />
+      <VButton v-if="items.length > 1" text icon="arrow" class="card__arrow-right" @click="nextItem" />
     </div>
 
-    <b class="card__subtitle">{{ activeItem.title }}</b>
+    <b class="card__subtitle">{{ activeItem.name }}</b>
     <div>
       <div class="card__unit"><b>Ширина:</b> {{ activeItem.width }} мм</div>
       <div class="card__unit"><b>Высота:</b> {{ activeItem.height }} мм</div>
       <div class="card__unit"><b>Глубина:</b> {{ activeItem.depth }} мм</div>
     </div>
     <div class="card__bottom">
-      <b>от {{ priceFilter(activeItem.price) }} руб.</b>
+      <b>{{ activeItem.price }}</b>
       <a href="#"
         >Рассчитать свой проект
         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ const prevItem = () => {
   else activeIndex.value = props.items.length - 1
 }
 
-const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
+// const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
 </script>
 
 <style lang="scss">

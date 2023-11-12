@@ -3,6 +3,7 @@
     <div class="reviews__left">Отзывы наших клиентов</div>
     <div class="reviews__right">
       <VSwiper
+        v-if="reviews.length"
         ref="swiper"
         :items="reviews"
         :breakpoints="breakpoints"
@@ -32,15 +33,15 @@
             <div class="reviews__text">
               {{ item.text }}
               <div class="reviews__row">
-                <img class="reviews__user" src="assets/images/user.png" />
-                {{ item.user }}
+                <img v-if="item.photo" class="reviews__user" :src="item.photo.url" />
+                {{ item.name }}
               </div>
             </div>
           </div>
         </template>
       </VSwiper>
 
-      <div class="reviews__count">{{ activeSlide }}/{{ reviews.length }}</div>
+      <div v-if="reviews.length" class="reviews__count">{{ activeSlide }}/{{ reviews.length }}</div>
     </div>
   </section>
 </template>
@@ -48,19 +49,12 @@
 <script setup>
 import { ref } from 'vue'
 import VSwiper from '../VSwiper.vue'
+import { onMounted } from 'vue'
+import axios from '@/utils/axios'
 
-const activeSlide = ref(0)
+const activeSlide = ref(1)
 
-const reviews = [
-  {
-    text: 'Сотрудничество с woodland оставило хорошие впечатления, особенно хочется отметить работу монтажников. Сделали все быстро и аккуратно. Рекомендую.',
-    user: 'Иван Харламов',
-  },
-  {
-    text: 'Сотрудничество с woodland оставило хорошие впечатления, особенно хочется отметить работу монтажников. Сделали все быстро и аккуратно. Рекомендую.',
-    user: 'Иван Харламов',
-  },
-]
+const reviews = ref([])
 
 const breakpoints = {
   1280: {
@@ -70,6 +64,10 @@ const breakpoints = {
 }
 
 const changeSlide = ({ realIndex }) => (activeSlide.value = realIndex + 1)
+
+onMounted(() => {
+  axios.get('reviews').then(({ data }) => (reviews.value = data.map(({ acf }) => acf)))
+})
 </script>
 
 <style lang="scss">
@@ -182,6 +180,7 @@ const changeSlide = ({ realIndex }) => (activeSlide.value = realIndex + 1)
   &__user {
     width: rem(40);
     height: rem(40);
+    border-radius: 50%;
   }
 
   &__count {

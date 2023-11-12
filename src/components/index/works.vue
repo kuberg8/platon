@@ -1,5 +1,5 @@
 <template>
-  <section class="work__section">
+  <section v-if="works.length" class="work__section">
     <div id="work" class="work__anchor" />
     <VSwiper
       :breakpoints="breakpoints"

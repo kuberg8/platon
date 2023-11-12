@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <IndexHeader :links="headerLinks" @scroll="scroll" />
+    <IndexHeader :links="headerLinks" @scroll="scroll" :contacts="contacts" />
     <IndexMain />
-    <IndexFooter :links="footerLinks" @scroll="scroll" />
+    <IndexFooter :links="footerLinks" @scroll="scroll" :contacts="contacts" />
   </div>
 </template>
 
@@ -11,7 +11,8 @@ import IndexHeader from '@/components/index/header.vue'
 import IndexMain from '@/components/index/main.vue'
 import IndexFooter from '@/components/index/footer.vue'
 
-import { onMounted } from 'vue'
+import { onMounted, ref, provide } from 'vue'
+import axios from '@/utils/axios'
 
 const scroll = (name) => {
   window.location.hash = name
@@ -37,7 +38,7 @@ const headerLinks = [
   },
   {
     text: 'Наши работы',
-    link: '#work'
+    link: '#work',
   },
   { text: 'Контакты', link: '#contacts' },
 ]
@@ -71,7 +72,24 @@ const footerLinks = [
   { text: 'Контакты', link: '#contacts' },
 ]
 
-onMounted(() => window.location.hash && scroll(window.location.hash))
+const contacts = ref({
+  vk: '',
+  instagram: '',
+  address: '',
+  phone: '',
+  email: ''
+})
+
+provide('contacts', contacts)
+
+onMounted(async () => {
+  window.location.hash && scroll(window.location.hash)
+  const { data } = await axios.get('contacts')
+  if (data) {
+    const [resContacts] = data
+    contacts.value = resContacts?.acf
+  }
+})
 </script>
 
 <style lang="scss">

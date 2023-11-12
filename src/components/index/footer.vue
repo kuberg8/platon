@@ -1,23 +1,23 @@
 <template>
   <footer id="contacts" class="footer">
-    <div class="footer__first">
+    <div v-if="contacts" class="footer__first">
       <img class="footer__logo" src="@/assets/images/logo.svg" />
-      <div class="footer__number">+ 375 (29) 127-48-18</div>
+      <div class="footer__number">{{ contacts.phone }}</div>
       <div class="footer__mobile-title">Контактная информация</div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Телефон:</div>
-        <div>+ 375 (29) 127-48-18</div>
+        <div>{{ contacts.phone }}</div>
       </div>
       <div>
         <VButton class="footer__button">Заказать звонок</VButton>
       </div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Эл. почта:</div>
-        <div>stolyarka_platon@mail.ru</div>
+        <div>{{ contacts.email }}</div>
       </div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Адрес:</div>
-        <div>г. Гомель, ул. Производителей 14</div>
+        <div>{{ contacts.address }}</div>
       </div>
       <div>Платон © 2023</div>
     </div>
@@ -26,7 +26,7 @@
       <a class="link" v-for="(link, i) in links" :key="i" @click="link.event" :href="link.link">{{ link.text }}</a>
     </div>
 
-    <div class="footer__address">
+    <div v-if="contacts" class="footer__address">
       <b>Как нас найти</b>
       <div class="footer__map">
         <img src="assets/images/map.jpg" />
@@ -34,13 +34,13 @@
 
       <div class="footer__address-street">
         <VButton text icon="address" />
-        г. Гомель, ул. производителей 14
+        {{ contacts.address }}
       </div>
     </div>
 
-    <div class="footer__icons">
-      <VButton circle icon="vk-large" class="footer__icons-item" />
-      <VButton circle icon="insta-large" class="footer__icons-item" />
+    <div v-if="contacts" class="footer__icons">
+      <VButton tag="a" :href="contacts.vk" target="_blank" circle icon="vk-large" class="footer__icons-item" />
+      <VButton tag="a" :href="contacts.instagram" target="_blank" circle icon="insta-large" class="footer__icons-item" />
     </div>
   </footer>
 </template>
@@ -51,6 +51,7 @@ import VButton from '@/components/VButton.vue'
 
 defineProps({
   links: Array,
+  contacts: Object,
 })
 </script>
 

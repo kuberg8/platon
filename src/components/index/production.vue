@@ -6,6 +6,7 @@
         <h2>{{ item.title }}</h2>
         <div class="production__text">{{ item.text }}</div>
         <div class="production__small">{{ item.small }}</div>
+        <img class="production__mobile" src="assets/images/mobile-hr.svg" />
       </div>
     </div>
   </section>
@@ -74,6 +75,8 @@ const blocks = [
     row-gap: rem(20);
     width: rem(482);
     position: relative;
+
+    &
 
     &:after,
     &:before {
@@ -224,6 +227,17 @@ const blocks = [
 
     @include media-breakpoint-up(lg) {
       margin-top: auto;
+    }
+  }
+
+  &__mobile {
+    position: absolute;
+    height: rem(60);
+    top: 100%;
+    left: 0;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

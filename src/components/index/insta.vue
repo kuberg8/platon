@@ -4,7 +4,7 @@
       <div class="insta__title">
         Еще больше фото работ вы найдете в&nbsp;нашем <span class="insta__title-color">instagram</span>
       </div>
-      <VButton class="insta__button">Посмотреть instagram</VButton>
+      <VButton tag="a" :href="contacts.instagram" target="_blank" class="insta__button">Посмотреть instagram</VButton>
     </div>
 
     <img src="assets/images/phone.png" class="insta__phone" />
@@ -13,7 +13,10 @@
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import VButton from '../VButton.vue'
+
+const contacts = inject('contacts')
 </script>
 
 <style lang="scss">
@@ -22,7 +25,7 @@ import VButton from '../VButton.vue'
   background-color: #333;
   box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
   position: relative;
-  height: rem(195);
+  padding-bottom: rem(10);
 
   &__mobile {
     @include media-breakpoint-up(lg) {
@@ -40,6 +43,7 @@ import VButton from '../VButton.vue'
 
   @include media-breakpoint-up(lg) {
     height: rem(279);
+    padding-bottom: rem(0);
   }
 
   &__container {
@@ -62,7 +66,7 @@ import VButton from '../VButton.vue'
     width: rem(208);
     line-height: 107%;
     margin-top: rem(30);
-    margin-bottom: rem(24);
+    margin-bottom: rem(30);
 
     @include media-breakpoint-up(lg) {
       text-align: center;
@@ -95,8 +99,8 @@ import VButton from '../VButton.vue'
     position: absolute;
     bottom: 0;
     right: 0;
-    width: rem(186);
-    height: rem(221);
+    width: rem(176);
+    height: rem(211);
 
     @include media-breakpoint-up(lg) {
       width: rem(370);
@@ -109,8 +113,8 @@ import VButton from '../VButton.vue'
     position: absolute;
     width: rem(140);
     height: rem(140);
-    right: 0;
-    bottom: 0;
+    right: rem(-8);
+    bottom: rem(0);
 
     @include media-breakpoint-up(lg) {
       bottom: rem(25);

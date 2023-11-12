@@ -22,18 +22,18 @@
       </ul>
     </nav>
 
-    <div class="header__address">
-      <div class="header__address-street">
+    <div v-if="contacts" class="header__address">
+      <div v-if="contacts.address" class="header__address-street">
         <VButton text icon="address" class="header__address-icon" />
-        г. Гомель, ул. производителей 14
+        {{ contacts.address }}
       </div>
-      <b class="header__phone">тел. + 375 (29) 127-48-18</b>
+      <b v-if="contacts.phone" class="header__phone">тел. {{ contacts.phone }}</b>
       <div class="header__title">Мы&nbsp;производим мебель из массива</div>
       <VButton class="header__button"> Заказать звонок </VButton>
     </div>
-    <div class="header__social">
-      <VButton text icon="vk" />
-      <VButton text icon="insta" />
+    <div v-if="contacts" class="header__social">
+      <VButton v-if="contacts.vk" text icon="vk" tag="a" :href="contacts.vk" target="_blank" />
+      <VButton v-if="contacts.instagram" text icon="insta" tag="a" :href="contacts.instagram" target="_blank" />
     </div>
   </header>
 </template>
@@ -44,6 +44,7 @@ import VButton from '../VButton.vue'
 
 defineProps({
   links: Array,
+  contacts: Object,
 })
 </script>
 
@@ -179,7 +180,7 @@ defineProps({
   }
 
   &__title {
-    font-size: rem(40);
+    font-size: rem(36);
     font-weight: 800;
     line-height: 107.5%;
     text-align: center;

@@ -1,7 +1,7 @@
 <template>
   <div class="advantage__card">
     <div class="advantage__card-icons">
-      <img :src="require(`@/assets/images/${icon}.svg?inline`)" />
+      <img :src="require(`@/assets/images/advantages/${icon}.svg?inline`)" />
       <img :src="require(`@/assets/images/big-check.svg?inline`)" />
     </div>
 

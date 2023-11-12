@@ -76,8 +76,6 @@ const blocks = [
     width: rem(482);
     position: relative;
 
-    &
-
     &:after,
     &:before {
       position: absolute;
@@ -199,10 +197,6 @@ const blocks = [
       width: rem(133);
       height: rem(70);
       background-size: rem(133) rem(70);
-      
-      @include media-breakpoint-up(lg) {
-
-      }
     }
   }
 
@@ -232,10 +226,10 @@ const blocks = [
 
   &__mobile {
     position: absolute;
-    height: rem(60);
+    width: rem(3.2);
     top: 100%;
     left: 0;
-
+    
     @include media-breakpoint-up(lg) {
       display: none;
     }

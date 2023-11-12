@@ -1,7 +1,8 @@
 <template>
-  <section v-if="works.length" class="work__section">
+  <section class="work__section">
     <div id="work" class="work__anchor" />
     <VSwiper
+      v-if="works.length"
       :breakpoints="breakpoints"
       :slidesPerView="1.1"
       :items="works"
@@ -38,7 +39,15 @@ onMounted(async () => {
   const { data } = await axios.get('works')
   const acf = data?.map(({ acf }) => acf)
   if (acf) {
-    const res = Object.groupBy(acf, ({ type }) => type)
+    // const groupBy = Object.groupBy || Array.group
+    // const res = groupBy(acf, ({ type }) => type)
+
+    const res = acf.reduce((x, y) => {
+      (x[y.type] = x[y.type] || []).push(y)
+
+      return x
+    }, {})
+
     works.value = Object.entries(res).map(([key, values]) => ({
       title: key,
       items: values,

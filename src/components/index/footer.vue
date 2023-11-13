@@ -29,7 +29,12 @@
     <div v-if="contacts" class="footer__address">
       <b>Как нас найти</b>
       <div class="footer__map">
-        <img src="assets/images/map.jpg" />
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c24ebd075f1fcab23767e10243306f10f85cf2f3eb9c17d1e6cc733d537e0c0&amp;source=constructor"
+          width="100%"
+          height="240"
+          frameborder="0"
+        ></iframe>
       </div>
 
       <div class="footer__address-street">
@@ -40,7 +45,14 @@
 
     <div v-if="contacts" class="footer__icons">
       <VButton tag="a" :href="contacts.vk" target="_blank" circle icon="vk-large" class="footer__icons-item" />
-      <VButton tag="a" :href="contacts.instagram" target="_blank" circle icon="insta-large" class="footer__icons-item" />
+      <VButton
+        tag="a"
+        :href="contacts.instagram"
+        target="_blank"
+        circle
+        icon="insta-large"
+        class="footer__icons-item"
+      />
     </div>
   </footer>
 </template>
@@ -67,7 +79,7 @@ defineProps({
   @include media-breakpoint-up(lg) {
     border-top: 1px dashed $color-primary;
     flex-direction: row;
-    padding: rem(77.21) rem(130) rem(35.21);
+    padding: rem(60.21) rem(130) rem(35.21);
   }
 
   &__first {
@@ -83,7 +95,7 @@ defineProps({
   &__links {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: 700;
     white-space: nowrap;
 
@@ -139,12 +151,14 @@ defineProps({
 
   &__map {
     display: none;
-    height: rem(219);
-    overflow: hidden;
-    margin: rem(10) 0;
 
     @include media-breakpoint-up(lg) {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: rem(240);
+      overflow: hidden;
+      margin: rem(10) 0;
     }
   }
 

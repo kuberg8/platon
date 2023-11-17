@@ -2,20 +2,20 @@
   <footer id="contacts" class="footer">
     <div v-if="contacts" class="footer__first">
       <img class="footer__logo" src="@/assets/images/logo.svg" />
-      <div class="footer__number">{{ contacts.phone }}</div>
+      <div v-if="contacts.address" class="footer__number">{{ contacts.phone }}</div>
       <div class="footer__mobile-title">Контактная информация</div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Телефон:</div>
-        <div>{{ contacts.phone }}</div>
+        <a :href="`tel:${contacts.phone}`">{{ contacts.phone }}</a>
       </div>
-      <div>
+      <div v-if="contacts.address">
         <VButton @click="$emit('showDialog')" class="footer__button">Заказать звонок</VButton>
       </div>
       <div class="footer__mobile">
         <div class="footer__mobile-label">Эл. почта:</div>
-        <div>{{ contacts.email }}</div>
+        <a :href="`mailto:${contacts.email}`">{{ contacts.email }}</a>
       </div>
-      <div class="footer__mobile">
+      <div v-if="contacts.address" class="footer__mobile">
         <div class="footer__mobile-label">Адрес:</div>
         <div>{{ contacts.address }}</div>
       </div>
@@ -23,19 +23,20 @@
     </div>
 
     <div class="footer__links">
-      <a class="link" v-for="(link, i) in links" :key="i" @click="link.event" :href="link.link">{{ link.text }}</a>
+      <a
+        :class="{ link__row: !contacts.address }"
+        class="link"
+        v-for="(link, i) in links"
+        :key="i"
+        @click="link.event"
+        :href="link.link"
+        >{{ link.text }}</a
+      >
     </div>
 
-    <div v-if="contacts" class="footer__address">
+    <div v-if="contacts && contacts.address" class="footer__address">
       <b>Как нас найти</b>
-      <div class="footer__map">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c24ebd075f1fcab23767e10243306f10f85cf2f3eb9c17d1e6cc733d537e0c0&amp;source=constructor"
-          width="100%"
-          height="240"
-          frameborder="0"
-        ></iframe>
-      </div>
+      <div v-if="contacts.map" class="footer__map" v-html="contacts.map" />
 
       <div class="footer__address-street">
         <VButton text icon="address" />
@@ -43,9 +44,18 @@
       </div>
     </div>
 
-    <div v-if="contacts" class="footer__icons">
-      <VButton tag="a" :href="contacts.vk" target="_blank" circle icon="vk-large" class="footer__icons-item" />
+    <div v-if="contacts" class="footer__icons" :class="{ 'footer__icons-mobile': !contacts.address }">
       <VButton
+        v-if="contacts.vk"
+        tag="a"
+        :href="contacts.vk"
+        target="_blank"
+        circle
+        icon="vk-large"
+        class="footer__icons-item"
+      />
+      <VButton
+        v-if="contacts.instagram"
         tag="a"
         :href="contacts.instagram"
         target="_blank"
@@ -53,6 +63,21 @@
         icon="insta-large"
         class="footer__icons-item"
       />
+    </div>
+
+    <div v-if="!contacts.address" class="footer__icons" :class="{ 'footer__icons-desktop': !contacts.address }">
+      <a :href="`tel:${contacts.phone}`" class="footer__number">{{ contacts.phone }} </a>
+      <div class="footer__icons-row">
+        <VButton @click="$emit('showDialog')" class="footer__button">Заказать звонок</VButton>
+        <VButton
+          tag="a"
+          :href="contacts.instagram"
+          target="_blank"
+          circle
+          icon="insta-large"
+          class="footer__icons-item"
+        />
+      </div>
     </div>
   </footer>
 </template>
@@ -71,7 +96,6 @@ defineProps({
 .footer {
   display: flex;
   flex-direction: column;
-  column-gap: rem(167);
   background: $color-bg;
   padding: rem(20) rem(15);
   position: relative;
@@ -94,14 +118,23 @@ defineProps({
 
   &__links {
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    font-weight: 700;
-    white-space: nowrap;
 
     @include media-breakpoint-up(lg) {
-      width: rem(179);
+      width: 100%;
       display: flex;
+      margin: 0 rem(167);
+      justify-content: space-between;
+      font-weight: 700;
+      flex-wrap: wrap;
+      white-space: nowrap;
+    }
+
+    .link {
+      min-width: rem(179);
+
+      &__row {
+        min-width: auto;
+      }
     }
   }
 
@@ -132,8 +165,9 @@ defineProps({
 
     @include media-breakpoint-up(lg) {
       display: block;
-      width: rem(589);
+      width: 100%;
       height: 100%;
+      margin-right: rem(40);
     }
 
     &-street {
@@ -157,6 +191,7 @@ defineProps({
       align-items: center;
       justify-content: center;
       min-height: rem(240);
+      min-width: rem(746);
       overflow: hidden;
       margin: rem(10) 0;
     }
@@ -169,10 +204,37 @@ defineProps({
     position: absolute;
     top: rem(133);
     right: rem(35);
+    margin-left: auto;
 
     @include media-breakpoint-up(lg) {
       position: static;
       margin-top: rem(40);
+
+      &.mt-0 {
+        margin-top: 0;
+      }
+    }
+
+    &-mobile {
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    &-desktop {
+      display: none;
+
+      @include media-breakpoint-up(lg) {
+        display: block;
+        margin-top: 0;
+        min-width: rem(337);
+      }
+    }
+
+    &-row {
+      display: flex;
+      column-gap: rem(20);
+      align-items: center;
     }
   }
 

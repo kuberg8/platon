@@ -1,6 +1,6 @@
 <template>
   <div class="checkbox" @click="handleInput(!check)">
-    <input v-model="check" type="checkbox" required class="checkbox__input" />
+    <input v-model="check" type="checkbox" :required="required" class="checkbox__input" />
     <svg
       class="checkbox__icon"
       width="18"

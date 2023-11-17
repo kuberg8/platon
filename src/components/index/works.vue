@@ -15,7 +15,7 @@
     </VSwiper>
 
     <div class="container">
-      <VButton class="work__button">Рассчитать свой проект</VButton>
+      <VButton @click="openForm" class="work__button">Рассчитать свой проект</VButton>
     </div>
   </section>
 </template>
@@ -24,8 +24,10 @@
 import VSwiper from '../VSwiper.vue'
 import VCard from '../VCard.vue'
 import VButton from '../VButton.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import axios from '@/utils/axios'
+
+const openForm = inject('openForm')
 
 const works = ref([])
 

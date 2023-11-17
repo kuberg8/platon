@@ -93,9 +93,13 @@ const contacts = ref({
   address: '',
   phone: '',
   email: '',
+  map: '',
 })
 
 provide('contacts', contacts)
+provide('openForm', () => {
+  formIsOpen.value = true
+})
 provide('alert', () => {
   if (formIsOpen.value) {
     formIsOpen.value = false

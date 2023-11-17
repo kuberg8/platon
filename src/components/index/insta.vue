@@ -1,5 +1,5 @@
 <template>
-  <section class="insta">
+  <section v-if="contacts.instagram" class="insta">
     <div class="insta__container">
       <div class="insta__title">
         Еще больше фото работ вы найдете в&nbsp;нашем <span class="insta__title-color">instagram</span>

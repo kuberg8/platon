@@ -16,20 +16,22 @@
     </div>
     <div class="card__bottom">
       <b>{{ activeItem.price }}</b>
-      <a href="#"
-        >Рассчитать свой проект
+      <button @click="openForm">
+        Рассчитать свой проект
         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="7.74714" cy="7.88288" r="7.24714" fill="currentColor" fill-opacity="0.52" />
           <path d="M5.81369 4.79883L9.68164 7.88243L5.81369 10.966" stroke="#F2F2F2" stroke-width="1.05332" />
         </svg>
-      </a>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, computed, ref } from 'vue'
+import { defineProps, computed, ref, inject } from 'vue'
 import VButton from './VButton.vue'
+
+const openForm = inject('openForm')
 
 const props = defineProps({
   title: String,
@@ -65,10 +67,10 @@ const prevItem = () => {
   transition: 0.5s;
   background-color: $color-grey;
   font-size: rem(12);
-  height: rem(387);
+  // height: rem(387);
 
   @include media-breakpoint-up(lg) {
-    height: rem(739);
+    // height: rem(739);
     font-size: rem(18);
     gap: rem(23);
     padding: rem(25) rem(20) rem(5.1) rem(25);
@@ -76,7 +78,7 @@ const prevItem = () => {
     &:hover {
       box-shadow: 0px rem(20) rem(50) 0px rgba(0, 0, 0, 0.4);
 
-      a {
+      button {
         color: $color-primary;
       }
     }
@@ -157,10 +159,11 @@ const prevItem = () => {
     align-items: center;
 
     @include media-breakpoint-up(lg) {
-      height: rem(70);
+      height: rem(45);
+      padding-bottom: rem(25);
     }
 
-    a {
+    button {
       display: none;
 
       @include media-breakpoint-up(lg) {
@@ -189,13 +192,12 @@ const prevItem = () => {
   &__subtitle {
     display: flex;
     align-items: center;
-    height: rem(24);
     font-size: rem(14);
+    line-height: 127%;
 
     @include media-breakpoint-up(lg) {
-      height: auto;
       font-size: rem(24);
-      line-height: 167.9%;
+    line-height: 167.9%;
     }
   }
 

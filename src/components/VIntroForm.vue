@@ -7,14 +7,12 @@
       <VInput
         v-model="formData.phone"
         type="tel"
-        pattern="[0-9]{10}"
-        title="+7 ### ### ##-##"
-        placeholder="Номер телефона "
+        placeholder="Номер телефона"
         required
       />
       <VInput v-model="formData.email" type="email" placeholder="E-mail" required />
       <VInput v-model="formData.info" placeholder="Дополнительная информация" />
-      <VCheckbox v-model="formData.agree">Я принимаю условия обработки персональных данных</VCheckbox>
+      <VCheckbox v-model="formData.agree" required>Я принимаю условия обработки персональных данных</VCheckbox>
       <VButton type="submit">Оставить заявку на звонок</VButton>
     </div>
   </form>

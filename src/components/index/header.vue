@@ -1,9 +1,9 @@
 <template>
   <header class="header">
-    <div class="header__mobile">
+    <a :href="`tel:${contacts.phone}`" class="header__mobile">
       <VButton text icon="phone" class="header__phone-icon" />
-      + 375 (29) 127-48-18
-    </div>
+      {{ contacts.phone }}
+    </a>
 
     <a href="#intro">
       <picture>
@@ -27,7 +27,7 @@
         <VButton text icon="address" class="header__address-icon" />
         {{ contacts.address }}
       </div>
-      <b v-if="contacts.phone" class="header__phone">тел. {{ contacts.phone }}</b>
+      <a :href="`tel:${contacts.phone}`" v-if="contacts.phone" class="header__phone">тел. {{ contacts.phone }}</a>
       <div class="header__title">Мы&nbsp;производим мебель из массива</div>
       <VButton @click="$emit('showDialog')" class="header__button"> Заказать звонок </VButton>
     </div>
@@ -148,6 +148,7 @@ defineProps({
 
     @include media-breakpoint-up(lg) {
       display: block;
+      font-weight: bold;
     }
   }
 

@@ -6,13 +6,18 @@
         Мы поможем подобрать Вам лучшее решение для Вашей квартиры, коттеджа, дачи, террасы, офиса и любых других
         помещений так, что бы потом не жалеть!
       </div>
-      <VButton class="online__button">Рассчитать</VButton>
+      <VButton @click="openForm" class="online__button">Рассчитать</VButton>
     </div>
 
-    <form class="online__form" @submit.prevent>
-      <VInput placeholder="Ваше имя" required />
-      <VInput placeholder="Номер телефона" required />
-      <VCheckbox>Я принимаю условия обработки персональных данных</VCheckbox>
+    <form class="online__form" @submit.prevent="submit">
+      <VInput v-model="formData.name" placeholder="Ваше имя" required />
+      <VInput
+        v-model="formData.phone"
+        type="tel"
+        placeholder="Номер телефона"
+        required
+      />
+      <VCheckbox v-model="formData.agree" required>Я принимаю условия обработки персональных данных</VCheckbox>
       <VButton type="submit">Оставить заявку на звонок</VButton>
     </form>
   </section>
@@ -22,6 +27,40 @@
 import VButton from '../VButton.vue'
 import VInput from '../VInput.vue'
 import VCheckbox from '../VCheckbox.vue'
+import { ref, inject } from 'vue'
+import axios from 'axios'
+
+const openForm = inject('openForm')
+const alert = inject('alert')
+
+const defaultValue = {
+  name: '',
+  phone: '',
+  agree: false,
+}
+const formData = ref({ ...defaultValue })
+
+const submit = async () => {
+  const { name, phone, agree } = formData.value
+  const isError = Object.values({ name, phone, agree }).some((val) => !val)
+
+  if (!isError) {
+    let text = ''
+
+    const formDataArray = Object.entries({ name, phone })
+    formDataArray.forEach(([key, value], i) => {
+      if (value) {
+        text += `${key}: ${value}${i < formDataArray.length - 1 ? '%0A' : ''}`
+      }
+    })
+
+    const url = `https://api.telegram.org/bot${process.env.VUE_APP_TG_TOKEN}/sendMessage?chat_id=${process.env.VUE_APP_TG_ID}&text=${text}&parse_mode=HTML`
+    await axios.get(url)
+
+    formData.value = { ...defaultValue }
+    alert()
+  }
+}
 </script>
 
 <style lang="scss">

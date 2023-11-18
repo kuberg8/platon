@@ -10,9 +10,9 @@
 
     <b class="card__subtitle">{{ activeItem.name }}</b>
     <div>
-      <div class="card__unit"><b>Ширина:</b> {{ activeItem.width }} мм</div>
-      <div class="card__unit"><b>Высота:</b> {{ activeItem.height }} мм</div>
-      <div class="card__unit"><b>Глубина:</b> {{ activeItem.depth }} мм</div>
+      <div v-show="unit" v-for="(unit, i) in activeItem.units" :key="i" class="card__unit">
+        <b>{{ getUnitName(unit) }}:</b>{{ getUnitValue(unit) }}
+      </div>
     </div>
     <div class="card__bottom">
       <b>{{ activeItem.price }}</b>
@@ -52,6 +52,9 @@ const prevItem = () => {
   if (0 < activeIndex.value) activeIndex.value -= 1
   else activeIndex.value = props.items.length - 1
 }
+
+const getUnitName = (unit) => unit.split(':')?.[0]
+const getUnitValue = (unit) => unit.split(':')?.[1]
 
 // const priceFilter = (price) => new Intl.NumberFormat('ru').format(price)
 </script>
@@ -197,7 +200,7 @@ const prevItem = () => {
 
     @include media-breakpoint-up(lg) {
       font-size: rem(24);
-    line-height: 167.9%;
+      line-height: 167.9%;
     }
   }
 

@@ -21,6 +21,24 @@
 import VButton from '../VButton.vue'
 import VInput from '../VInput.vue'
 import VCheckbox from '../VCheckbox.vue'
+import { ref, inject } from 'vue'
+import sendApplication from '@/utils/tg'
+
+const alert = inject('alert')
+
+const defaultValue = {
+  name: '',
+  phone: '',
+  agree: false,
+}
+const formData = ref({ ...defaultValue })
+
+const submit = async () => {
+  const { name, phone } = formData.value
+  await sendApplication({ name, phone })
+  formData.value = { ...defaultValue }
+  alert()
+}
 </script>
 
 <style lang="scss">
@@ -36,7 +54,7 @@ import VCheckbox from '../VCheckbox.vue'
   padding: rem(30) rem(15) rem(10);
 
   @include media-breakpoint-up(lg) {
-    display: grid;
+    align-items: center;
     grid-template-columns: rem(410) rem(440);
     column-gap: rem(131);
     padding: rem(34.5) rem(97.5) rem(43.5) rem(649);
@@ -61,7 +79,6 @@ import VCheckbox from '../VCheckbox.vue'
     max-width: rem(220);
 
     @include media-breakpoint-up(lg) {
-      padding-top: rem(50);
       max-width: rem(410);
     }
   }

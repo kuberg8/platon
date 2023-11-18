@@ -14,7 +14,7 @@
     </svg>
 
     <div class="checkbox__text">
-        <slot />
+      <slot />
     </div>
   </div>
 </template>
@@ -25,10 +25,7 @@ import { ref, defineProps, defineEmits, watch } from 'vue'
 const props = defineProps({
   required: Boolean,
   phone: Boolean,
-  modelValue: {
-    type: String,
-    default: '',
-  },
+  modelValue: Boolean,
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -63,10 +60,10 @@ const handleInput = (val) => emit('update:modelValue', val)
   font-weight: 400;
   line-height: 154.4%;
   cursor: pointer;
-  color: rgba(#F2F2F2, 0.7);
+  color: rgba(#f2f2f2, 0.7);
   position: relative;
   align-items: center;
-  
+
   @include media-breakpoint-up(lg) {
     align-items: flex-end;
   }
